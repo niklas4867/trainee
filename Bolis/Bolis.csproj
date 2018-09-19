@@ -301,6 +301,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bolis.ico" />
+    <None Include="Resources\asdasdasd.png" />
+    <None Include="Resources\BOLIS5.png" />
+    <None Include="Resources\BOLIS4.png" />
+    <None Include="Resources\BOLIS3.png" />
+    <None Include="Resources\BOLIS2.png" />
+    <None Include="Resources\BOLIS1.png" />
+    <None Include="Resources\BOLIS.png" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
