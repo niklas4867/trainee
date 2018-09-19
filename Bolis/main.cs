@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Diagnostics;
-#if DEBUG
-using System.Runtime.InteropServices;
-#endif
+
 namespace Bloackchain_V1
 {
     public partial class main : Form
@@ -104,7 +102,7 @@ namespace Bloackchain_V1
                 }
                 return true;
             }
-            public int GetMoney(string Name) //Fragt Kontostand ab
+            public int GetMoney(string Name) //Fragt Kontostand ab -- Nicht Endlösung
             {
                 int x = 0;
                 for (int i = 1; i < Chain.Count; i++)
