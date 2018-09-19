@@ -1,4 +1,4 @@
-﻿namespace Bloackchain_V1
+﻿namespace Bolis
 {
     partial class main
     {
@@ -156,7 +156,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "main";
             this.Text = "Bolis";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

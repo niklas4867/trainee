@@ -8,11 +8,16 @@ using Microsoft.CSharp;
 using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
+using System.Linq;
+using System.Diagnostics;
 
 namespace MasterNode
 {
     public static class Program
     {
+        static public Blockchain Bolis = new Blockchain();
+
         delegate void AddMessage(string message);
         static Random rnd = new Random();
         const int port = 54545;
@@ -22,20 +27,22 @@ namespace MasterNode
         static UdpClient receivingClient;
         static UdpClient sendingClient;
 
+        static List<int> numbers = new List<int>();
+        static public int dif = 2;
+
         static Thread receivingThread;
-        static CSharpCodeProvider provider = new CSharpCodeProvider();
+
+        static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
 
 
         static void Main(string[] args)
         {
-            parameters.GenerateInMemory = true;
+            parameters.GenerateInMemory = true; //Code zu Maschinencode
             parameters.GenerateExecutable = true;
 
             InitializeSender();
             InitializeReceiver();
-
-            ResponseMessage(@"MasterNode.Program.CheckNr(12, ""Merlin"");");
 
             Console.ReadKey();
 
@@ -44,7 +51,6 @@ namespace MasterNode
         static private void InitializeSender()
 
         {
-
             sendingClient = new UdpClient(broadcastAddress, port);
             sendingClient.EnableBroadcast = true;
         }
@@ -110,11 +116,6 @@ namespace MasterNode
                 message
                 + @"
             }
-        
-        public void CheckNr(int Nr,string wallet)
-        {
-            Console.WriteLine(""HHHHHHHHH"");
-        }
         }
     }
 ";
@@ -167,7 +168,22 @@ namespace MasterNode
 
         static public void CheckNr(int Nr,string wallet)
         {
-            Console.WriteLine("HHHHHHHHH");
+            SHA256 sha256 = SHA256.Create();
+            string Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(Nr))));
+#if DEBUG
+            //Console.WriteLine($"{Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))}, {numbers.IndexOf(Nr) == -1}, {0 <= Nr}, {Nr <= 999999999}");
+#endif
+
+            if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif)) && numbers.IndexOf(Nr) == -1 && 0 <= Nr && Nr <= 999999999)
+            {
+                numbers.Add(Nr);
+                Console.WriteLine($"Block wurde von {wallet} abgebaut");
+                Bolis.AddBlock(new Block(DateTime.Now, null, $"{{sender:\"MasterNode\",receiver:{wallet},amount:1}}"));
+            }
+            else
+            {
+                Console.WriteLine($"Block von {wallet} fehlgeschlagen");
+            }
         }
 
 

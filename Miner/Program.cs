@@ -40,10 +40,10 @@ namespace miner
             InitializeReceiver();
             dif.Start();
 #if DEBUG
-            Console.ReadKey();
-#else
-            StartMiner();
+            //Console.ReadKey();
 #endif
+            StartMiner();
+
         }
 
         public static void StartMiner()
@@ -74,7 +74,7 @@ namespace miner
 
         public static void GetDif()
         {
-            dif = 9;
+            dif = 2;
             while (true) //Dummy -- Funktionalität kommt noch
             {
                 
@@ -83,10 +83,11 @@ namespace miner
 
         }
 
-        public static void CheckNr(int Nr) //Dummy -- Funktionalität kommt noch
+        public static void CheckNr(int Nr) //In Arbeit
         {
-            Send($"CheckNr({Nr},{wallet});");
+            Send($"MasterNode.Program.CheckNr({Nr},\"{wallet}\" );");
         }
+
         static private void InitializeSender()
 
         {

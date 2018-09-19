@@ -263,6 +263,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes.cs" />
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
