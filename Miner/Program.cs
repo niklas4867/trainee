@@ -16,10 +16,11 @@ namespace miner
         static string wallet;
 
         delegate void AddMessage(string message);
-
+        static Random rnd = new Random();
         const int port = 54545;
         const string broadcastAddress = "255.255.255.255";
-
+        static public int lastNumber;
+        static public int lastNumber2;
         static UdpClient receivingClient;
         static UdpClient sendingClient;
 
@@ -37,14 +38,12 @@ namespace miner
 
             InitializeSender();
             InitializeReceiver();
-            Console.ReadKey();
-
             dif.Start();
-        
+#if DEBUG
+            Console.ReadKey();
+#else
             StartMiner();
-
-
-
+#endif
         }
 
         public static void StartMiner()
@@ -75,9 +74,10 @@ namespace miner
 
         public static void GetDif()
         {
+            dif = 9;
             while (true) //Dummy -- Funktionalität kommt noch
             {
-                dif = 3;
+                
                 Thread.Sleep(5000);
             }
 
@@ -85,7 +85,7 @@ namespace miner
 
         public static void CheckNr(int Nr) //Dummy -- Funktionalität kommt noch
         {
-            
+            Send($"CheckNr({Nr},{wallet});");
         }
         static private void InitializeSender()
 
@@ -121,13 +121,28 @@ namespace miner
 
         static private void MessageReceived(string message)
         {
+            string x = message.Substring(message.Length - 4);
+            if (x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
+            message = message.Substring(0, message.Length - 4);
+#if DEBUG
             Console.WriteLine(message);
+#endif
+            ResponseMessage(message);
+
         }
 
         static void Send(string toSend)
         {
+            lastNumber2 = lastNumber;
+            lastNumber = rnd.Next(1000, 9999);
+            toSend = toSend + Convert.ToString(lastNumber);
             byte[] data = Encoding.ASCII.GetBytes(toSend);
             sendingClient.Send(data, data.Length);
+        }
+
+        static public void ResponseMessage(string message)
+        {
+
         }
     }
 }
