@@ -48,12 +48,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("BigNoodleTitling", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(310, 282);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 32);
+            this.label1.Size = new System.Drawing.Size(108, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sender";
             // 
@@ -64,7 +64,7 @@
             this.label3.Location = new System.Drawing.Point(562, 279);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 35);
+            this.label3.Size = new System.Drawing.Size(174, 37);
             this.label3.TabIndex = 2;
             this.label3.Text = "Empfänger";
             // 
@@ -85,16 +85,15 @@
             this.txtBetrag.Location = new System.Drawing.Point(799, 322);
             this.txtBetrag.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtBetrag.Name = "txtBetrag";
-            this.txtBetrag.Size = new System.Drawing.Size(200, 43);
+            this.txtBetrag.Size = new System.Drawing.Size(200, 44);
             this.txtBetrag.TabIndex = 3;
-            this.txtBetrag.TextChanged += new System.EventHandler(this.txtBetrag_TextChanged);
             // 
             // txtSender
             // 
             this.txtSender.Location = new System.Drawing.Point(250, 322);
             this.txtSender.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtSender.Name = "txtSender";
-            this.txtSender.Size = new System.Drawing.Size(196, 43);
+            this.txtSender.Size = new System.Drawing.Size(196, 44);
             this.txtSender.TabIndex = 1;
             // 
             // txtEmpfaenger
@@ -102,7 +101,7 @@
             this.txtEmpfaenger.Location = new System.Drawing.Point(524, 322);
             this.txtEmpfaenger.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtEmpfaenger.Name = "txtEmpfaenger";
-            this.txtEmpfaenger.Size = new System.Drawing.Size(196, 43);
+            this.txtEmpfaenger.Size = new System.Drawing.Size(196, 44);
             this.txtEmpfaenger.TabIndex = 2;
             // 
             // btnCheck
@@ -121,7 +120,7 @@
             this.txtName.Location = new System.Drawing.Point(524, 492);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(196, 43);
+            this.txtName.Size = new System.Drawing.Size(196, 44);
             this.txtName.TabIndex = 101;
             this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
@@ -132,7 +131,7 @@
             this.label4.Location = new System.Drawing.Point(525, 449);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(195, 35);
+            this.label4.Size = new System.Drawing.Size(276, 37);
             this.label4.TabIndex = 102;
             this.label4.Text = "Kontostand von ...";
             // 
@@ -155,24 +154,22 @@
             this.pictureBox1.Size = new System.Drawing.Size(291, 132);
             this.pictureBox1.TabIndex = 104;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("BigNoodleTitling", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(861, 279);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 32);
+            this.label2.Size = new System.Drawing.Size(100, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Betrag";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 35F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
@@ -188,14 +185,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("BigNoodleTitling", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bolis";
-            this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
