@@ -1,4 +1,4 @@
-﻿namespace Bloackchain_V1
+﻿namespace Bolis
 {
     partial class main
     {
@@ -196,8 +196,6 @@
             this.Text = "Bolis";
             this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

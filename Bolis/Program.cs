@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bloackchain_V1
+namespace Bolis
 {
     static class Program
     {
