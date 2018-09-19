@@ -148,5 +148,10 @@ namespace Bloackchain_V1
         {
             MessageBox.Show($"Der Kontostand von {txtName.Text} beträgt: {Bolis.GetMoney(txtName.Text)} Bolis");
         }
+
+        private void txtBetrag_Click(object sender, EventArgs e)
+        {
+            txtBetrag.Text = "";
+        }
     }
 }

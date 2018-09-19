@@ -89,6 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bolis.ico" />
+    <None Include="Resources\asdasdasd.png" />
+    <None Include="Resources\BOLIS5.png" />
+    <None Include="Resources\BOLIS4.png" />
+    <None Include="Resources\BOLIS3.png" />
+    <None Include="Resources\BOLIS2.png" />
+    <None Include="Resources\BOLIS1.png" />
+    <None Include="Resources\BOLIS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
