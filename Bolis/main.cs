@@ -1,22 +1,22 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Bolis
 {
     public partial class main : Form
     {
-        public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
+        static public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
 
         public main()
         {
             InitializeComponent();
-            P2P p2p = new P2P();
         }
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
         {
             Bolis.AddBlock(new Block(DateTime.Now, null, "{" + String.Format("sender:{0},receiver:{1},amount:{2:i}", txtSender.Text, txtEmpfaenger.Text, txtBetrag.Text) + "}"));
-
         }
 
         private void btnCheck_Click(object sender, EventArgs e) //Ruft die Überprüffunktion auf
@@ -50,7 +50,8 @@ namespace Bolis
         }
         static public void ResponseMessage(string message)
         {
-
+            Debug.WriteLine("Blockchian");
+            JsonConvert.PopulateObject(JsonConvert.SerializeObject(main.Bolis, Formatting.Indented), main.Bolis);
         }
     }
 }
