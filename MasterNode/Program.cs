@@ -15,7 +15,7 @@ namespace MasterNode
         static public Blockchain Bolis = new Blockchain();
 
         static List<int> numbers = new List<int>();
-        static public int dif = 2;
+        static public int dif = 5;
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
@@ -104,7 +104,8 @@ namespace MasterNode
             SHA256 sha256 = SHA256.Create();
             string Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(Nr))));
 #if DEBUG
-            //Console.WriteLine($"{Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))}, {numbers.IndexOf(Nr) == -1}, {0 <= Nr}, {Nr <= 999999999}");
+            Console.WriteLine(Hash.Substring(0, dif));
+            Console.WriteLine($"{Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))}, {numbers.IndexOf(Nr) == -1}, {0 <= Nr}, {Nr <= 999999999}");
 #endif
 
             if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif)) && numbers.IndexOf(Nr) == -1 && 0 <= Nr && Nr <= 999999999)
@@ -121,7 +122,7 @@ namespace MasterNode
 
         static public void ResponseMessage(string message) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
         {
-
+            RealtimeCompiler(message);
         }
     }
 }

@@ -14,23 +14,14 @@ namespace miner
         static int dif;
         static string wallet;
 
-        delegate void AddMessage(string message);
-        static Random rnd = new Random();
-        const int port = 54545;
-        const string broadcastAddress = "255.255.255.255";
-        static public int lastNumber;
-        static public int lastNumber2;
-        static UdpClient receivingClient;
-        static UdpClient sendingClient;
-
-        static Thread receivingThread;
+        static P2P p2p = new P2P();
 
 
         static void Main(string[] args)
         {
             ThreadStart getdif = new ThreadStart(GetDif); //Erstelle neuen Thread (GETDIF)
             Thread dif = new Thread(getdif);
-            P2P p2p = new P2P();
+            
 
             Console.Write("Dein Wallet: ");
             wallet = Console.ReadLine();
@@ -49,18 +40,20 @@ namespace miner
 
             while (true) //mining Script -- Mehr als Demontstration, Keine Leistungsoptimierung
             {
-                for (int i = 0; i < 100000; i++)
+                while (true)
                 {
                     randomNr = rnd.Next(0, 999999999);
                     Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(randomNr))));
 #if DEBUG
-                    Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);             
+                    //Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);             
 #endif
                     if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))) { break; }
 
                 }
 #if DEBUG
-                Console.ReadKey();
+                Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);
+                //Console.ReadKey();
+
 #endif
                 Thread check = new Thread(() => CheckNr(randomNr));
                 check.Start();
@@ -70,7 +63,7 @@ namespace miner
 
         public static void GetDif()
         {
-            dif = 2;
+            dif = 5;
             while (true) //Dummy -- Funktionalität kommt noch
             {
                 

@@ -65,7 +65,7 @@ namespace Bolis
 #if DEBUG
             Console.WriteLine(message);
 #endif
-            Program.ResponseMessage(message);
+            main.ResponseMessage(message);
 
         }
 
@@ -77,5 +77,6 @@ namespace Bolis
             byte[] data = Encoding.ASCII.GetBytes(toSend);
             sendingClient.Send(data, data.Length);
         }
+
     }
 }

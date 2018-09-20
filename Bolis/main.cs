@@ -48,5 +48,9 @@ namespace Bolis
                 MessageBox.Show($"Der Kontostand von {txtName.Text} beträgt: {Bolis.GetMoney(txtName.Text)} Bolis");
             }
         }
+        static public void ResponseMessage(string message)
+        {
+
+        }
     }
 }
