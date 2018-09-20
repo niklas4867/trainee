@@ -64,7 +64,15 @@ namespace Bolis
         }
 
         private void btnUeberweisen_Click(object sender, EventArgs e)
+        { 
+
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
         {
+            txtSender.Text = "";
+            txtEmpfaenger.Text = "";
+            txtBetrag.Text = "";
 
         }
     }

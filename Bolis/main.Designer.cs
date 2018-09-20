@@ -58,7 +58,7 @@
             this.txtBetrag.Location = new System.Drawing.Point(799, 322);
             this.txtBetrag.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtBetrag.Name = "txtBetrag";
-            this.txtBetrag.Size = new System.Drawing.Size(200, 44);
+            this.txtBetrag.Size = new System.Drawing.Size(200, 53);
             this.txtBetrag.TabIndex = 3;
             // 
             // txtSender
@@ -66,7 +66,7 @@
             this.txtSender.Location = new System.Drawing.Point(250, 322);
             this.txtSender.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtSender.Name = "txtSender";
-            this.txtSender.Size = new System.Drawing.Size(196, 44);
+            this.txtSender.Size = new System.Drawing.Size(196, 53);
             this.txtSender.TabIndex = 1;
             // 
             // txtEmpfaenger
@@ -74,7 +74,7 @@
             this.txtEmpfaenger.Location = new System.Drawing.Point(523, 322);
             this.txtEmpfaenger.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtEmpfaenger.Name = "txtEmpfaenger";
-            this.txtEmpfaenger.Size = new System.Drawing.Size(196, 44);
+            this.txtEmpfaenger.Size = new System.Drawing.Size(196, 53);
             this.txtEmpfaenger.TabIndex = 2;
             // 
             // btnCheck
@@ -104,7 +104,7 @@
             this.txtName.Location = new System.Drawing.Point(523, 492);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(196, 44);
+            this.txtName.Size = new System.Drawing.Size(196, 53);
             this.txtName.TabIndex = 101;
             this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
@@ -255,7 +255,7 @@
             // btn2
             // 
             this.btn2.FlatAppearance.BorderSize = 0;
-            this.btn2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
             this.btn2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -267,13 +267,13 @@
             this.btn2.Size = new System.Drawing.Size(43, 43);
             this.btn2.TabIndex = 4;
             this.btn2.UseVisualStyleBackColor = true;
-            this.btn2.Click += new System.EventHandler(this.btn1_Click);
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn1
             // 
             this.btn1.BackgroundImage = global::Bolis.Properties.Resources.checkmark1;
             this.btn1.FlatAppearance.BorderSize = 0;
-            this.btn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
             this.btn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1.Location = new System.Drawing.Point(1022, 322);
@@ -286,7 +286,7 @@
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
