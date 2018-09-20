@@ -6,11 +6,12 @@ namespace Bolis
     public partial class main : Form
     {
         public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
-
+        P2P p2p = new P2P();
+        BC bc = new BC();
         public main()
         {
             InitializeComponent();
-            P2P p2p = new P2P();
+            bc.StartThreat();
         }
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 

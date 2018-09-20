@@ -13,7 +13,7 @@ namespace Bolis
 
         }
 
-        public void Funktion()
+        public void StartThreat()
         {
 
         }
