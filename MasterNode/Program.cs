@@ -7,6 +7,7 @@ using System.Reflection;
 using System.IO;
 using System.CodeDom.Compiler;
 using Microsoft.CSharp;
+using System.Threading;
 
 namespace MasterNode
 {
@@ -19,10 +20,14 @@ namespace MasterNode
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
+        static P2P p2p = new P2P();
 
         static void Main(string[] args)
         {
-            P2P p2p = new P2P();
+            
+            ThreadStart getdif = new ThreadStart(SetDif); //Erstelle neuen Thread (GETDIF)
+            Thread dif = new Thread(getdif);
+            dif.Start();
 
             Console.ReadKey();
         }
@@ -113,6 +118,7 @@ namespace MasterNode
                 numbers.Add(Nr);
                 Console.WriteLine($"Block wurde von {wallet} abgebaut");
                 Bolis.AddBlock(new Block(DateTime.Now, null, $"{{sender:\"MasterNode\",receiver:{wallet},amount:1}}"));
+                
             }
             else
             {
@@ -120,9 +126,20 @@ namespace MasterNode
             }
         }
 
+
+
         static public void ResponseMessage(string message) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
         {
             RealtimeCompiler(message);
+        }
+
+        static public void SetDif()
+        {
+            while (true)
+            {
+                p2p.Send("SetDif" + dif);
+                Thread.Sleep(5000);
+            }
         }
     }
 }

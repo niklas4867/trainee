@@ -11,7 +11,7 @@ namespace miner
     {
         static string Hash;
         static int randomNr;
-        static int dif;
+        static int dif = 9;
         static string wallet;
 
         static P2P p2p = new P2P();
@@ -19,13 +19,12 @@ namespace miner
 
         static void Main(string[] args)
         {
-            ThreadStart getdif = new ThreadStart(GetDif); //Erstelle neuen Thread (GETDIF)
-            Thread dif = new Thread(getdif);
+
             
 
             Console.Write("Dein Wallet: ");
             wallet = Console.ReadLine();
-            dif.Start();
+            
 #if DEBUG
             //Console.ReadKey();
 #endif
@@ -62,17 +61,6 @@ namespace miner
 
         }
 
-        public static void GetDif()
-        {
-            dif = 3;
-            while (true) //Dummy -- Funktionalität kommt noch
-            {
-                
-                Thread.Sleep(5000);
-            }
-
-        }
-
         public static void CheckNr(int Nr) //In Arbeit
         {
             p2p.Send($"MasterNode.Program.CheckNr({Nr},\"{wallet}\" );");
@@ -80,7 +68,11 @@ namespace miner
 
         static public void ResponseMessage(string message)
         {
-
+            Console.WriteLine(message.Substring(0, 6));
+            if(message.Substring(0,6) == "SetDif")
+            {
+                dif = Convert.ToInt32(message.Substring(7, message.Length));
+            }
         }
     }
 }
