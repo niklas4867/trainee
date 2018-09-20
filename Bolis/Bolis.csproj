@@ -267,6 +267,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BC.cs" />
     <Compile Include="Classes.cs" />
     <Compile Include="main.cs">
       <SubType>Form</SubType>
