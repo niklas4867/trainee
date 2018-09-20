@@ -48,13 +48,13 @@ namespace miner
                     if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif)))
                     {
 #if DEBUG
-                        Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);
-                        //Console.ReadKey();
+                    Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);
+                    //Console.ReadKey();
 
 #endif
-                        Thread check = new Thread(() => CheckNr(randomNr));
-                        check.Start();
-
+                    Thread check = new Thread(() => CheckNr(randomNr));
+                    check.Start();
+                    Thread.Sleep(2000);
                     }
 
               
