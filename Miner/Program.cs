@@ -61,7 +61,7 @@ namespace miner
 
         }
 
-        public static void CheckNr(int Nr) //In Arbeit
+        public static void CheckNr(int Nr)
         {
             p2p.Send($"MasterNode.Program.CheckNr({Nr},\"{wallet}\" );");
         }
