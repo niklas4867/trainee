@@ -47,5 +47,25 @@ namespace Bolis
                 MessageBox.Show($"Der Kontostand von {txtName.Text} beträgt: {Bolis.GetMoney(txtName.Text)} Bolis");
             }
         }
+
+        private void btnueberweisen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKontostand_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUeberweisen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

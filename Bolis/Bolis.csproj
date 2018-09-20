@@ -301,6 +301,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bolis.ico" />
+    <None Include="Resources\cross_v3.png" />
+    <None Include="Resources\cross_v2.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\checkmark1.png" />
+    <None Include="Resources\betrag1.png" />
+    <None Include="Resources\empfaenger2.png" />
+    <None Include="Resources\sender2.png" />
+    <None Include="Resources\bar1.png" />
+    <None Include="Resources\transaktionen.png" />
+    <None Include="Resources\ueberweisen3.png" />
+    <None Include="Resources\kontostand.png" />
+    <None Include="Resources\Unbenannt-31.png" />
+    <None Include="Resources\Unbenannt-3.png" />
+    <None Include="Resources\ueberweisen2.png" />
+    <None Include="Resources\ueberweisen1.png" />
+    <None Include="Resources\ueberweisen.png" />
     <None Include="Resources\asdasdasd.png" />
     <None Include="Resources\BOLIS5.png" />
     <None Include="Resources\BOLIS4.png" />
