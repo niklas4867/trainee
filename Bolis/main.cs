@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace Bolis
     public partial class main : Form
     {
         static public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
+        static List<Blockchain> BC = new List<Blockchain>();
         private BCPusher bcpusher = new BCPusher();
         public main()
         {
@@ -51,7 +53,9 @@ namespace Bolis
         static public void ResponseMessage(string message)
         {
             Debug.WriteLine("Blockchian");
-            JsonConvert.PopulateObject(JsonConvert.SerializeObject(main.Bolis, Formatting.Indented), main.Bolis);
+            BC.Add(new Blockchain());
+            JsonConvert.PopulateObject(JsonConvert.SerializeObject(main.Bolis, Formatting.Indented), BC[BC.Count]);
+            Debug.WriteLine(JsonConvert.SerializeObject(BC[BC.Count]), Formatting.Indented);
         }
     }
 }
