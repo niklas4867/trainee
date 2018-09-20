@@ -68,7 +68,6 @@ namespace miner
 
         static public void ResponseMessage(string message)
         {
-            Console.WriteLine(message.Substring(0, 6));
             if(message.Substring(0,6) == "SetDif")
             {
                 dif = Convert.ToInt32(message.Substring(6));

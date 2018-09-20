@@ -14,9 +14,10 @@ namespace MasterNode
     public static class Program
     {
         static public Blockchain Bolis = new Blockchain();
-
+        private static System.Timers.Timer Timer;
         static List<int> numbers = new List<int>();
         static public int dif = 3;
+        static int sek = 0;
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
@@ -24,11 +25,9 @@ namespace MasterNode
 
         static void Main(string[] args)
         {
-            
             ThreadStart getdif = new ThreadStart(SetDif); //Erstelle neuen Thread (GETDIF)
             Thread dif = new Thread(getdif);
             dif.Start();
-
             Console.ReadKey();
         }
 
@@ -106,6 +105,7 @@ namespace MasterNode
 
         static public void CheckNr(int Nr, string wallet)
         {
+            Timer.Stop();
             SHA256 sha256 = SHA256.Create();
             string Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(Nr))));
 #if DEBUG
@@ -118,7 +118,9 @@ namespace MasterNode
                 numbers.Add(Nr);
                 Console.WriteLine($"Block wurde von {wallet} abgebaut");
                 Bolis.AddBlock(new Block(DateTime.Now, null, $"{{sender:\"MasterNode\",receiver:{wallet},amount:1}}"));
-                
+                if(sek > 60) { dif++; }
+                else if (sek < 60) { dif--; }
+                sek = 0;
             }
             else
             {
@@ -138,7 +140,8 @@ namespace MasterNode
             while (true)
             {
                 p2p.Send("SetDif" + dif);
-                Thread.Sleep(5000);
+                Thread.Sleep(4990);
+                sek = sek + 5;
             }
         }
     }

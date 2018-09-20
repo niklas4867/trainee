@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -64,7 +65,7 @@ namespace miner
             if (x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
             message = message.Substring(0, message.Length - 4);
 #if DEBUG
-            Console.WriteLine(message);
+            Debug.WriteLine("P2P: "+message);
 #endif
             Program.ResponseMessage(message);
 
