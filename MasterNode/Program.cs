@@ -14,7 +14,6 @@ namespace MasterNode
     public static class Program
     {
         static public Blockchain Bolis = new Blockchain();
-        private static System.Timers.Timer Timer;
         static List<int> numbers = new List<int>();
         static public int dif = 3;
         static int sek = 0;
@@ -25,6 +24,7 @@ namespace MasterNode
 
         static void Main(string[] args)
         {
+
             ThreadStart getdif = new ThreadStart(SetDif); //Erstelle neuen Thread (GETDIF)
             Thread dif = new Thread(getdif);
             dif.Start();
@@ -105,7 +105,6 @@ namespace MasterNode
 
         static public void CheckNr(int Nr, string wallet)
         {
-            Timer.Stop();
             SHA256 sha256 = SHA256.Create();
             string Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(Nr))));
 #if DEBUG
@@ -116,11 +115,12 @@ namespace MasterNode
             if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif)) && numbers.IndexOf(Nr) == -1 && 0 <= Nr && Nr <= 999999999)
             {
                 numbers.Add(Nr);
-                Console.WriteLine($"Block wurde von {wallet} abgebaut");
+                Console.WriteLine($"Block wurde von {wallet} nach {MasterNode.Program.sek} Sekunden abgebaut");
                 Bolis.AddBlock(new Block(DateTime.Now, null, $"{{sender:\"MasterNode\",receiver:{wallet},amount:1}}"));
-                if(sek > 60) { dif++; }
-                else if (sek < 60) { dif--; }
-                sek = 0;
+                if(MasterNode.Program.sek > 60) { MasterNode.Program.dif--; }
+                else if (MasterNode.Program.sek < 60) { MasterNode.Program.dif++; }
+                Console.WriteLine("Neue Schwierigkeit: {MasterNode.Program.dif}");
+                MasterNode.Program.sek = 0;
             }
             else
             {
@@ -142,6 +142,7 @@ namespace MasterNode
                 p2p.Send("SetDif" + dif);
                 Thread.Sleep(4990);
                 sek = sek + 5;
+                if (sek >= 80) { dif--; sek = 0; Console.WriteLine($"Neue Schwieriegkeit: {dif}"); }
             }
         }
     }
