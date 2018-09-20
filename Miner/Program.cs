@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
-using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
@@ -31,13 +30,10 @@ namespace miner
         {
             ThreadStart getdif = new ThreadStart(GetDif); //Erstelle neuen Thread (GETDIF)
             Thread dif = new Thread(getdif);
-
+            P2P p2p = new P2P();
 
             Console.Write("Dein Wallet: ");
             wallet = Console.ReadLine();
-
-            InitializeSender();
-            InitializeReceiver();
             dif.Start();
 #if DEBUG
             //Console.ReadKey();
@@ -85,60 +81,7 @@ namespace miner
 
         public static void CheckNr(int Nr) //In Arbeit
         {
-            Send($"MasterNode.Program.CheckNr({Nr},\"{wallet}\" );");
-        }
-
-        static private void InitializeSender()
-
-        {
-
-            sendingClient = new UdpClient(broadcastAddress, port);
-            sendingClient.EnableBroadcast = true;
-        }
-
-        static private void InitializeReceiver()
-        {
-            receivingClient = new UdpClient(port);
-
-            ThreadStart start = new ThreadStart(Receiver);
-            receivingThread = new Thread(start);
-            receivingThread.IsBackground = true;
-            receivingThread.Start();
-        }
-
-
-        static private void Receiver()
-        {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
-            AddMessage messageDelegate = MessageReceived;
-
-            while (true)
-            {
-                byte[] data = receivingClient.Receive(ref endPoint);
-                string message = Encoding.ASCII.GetString(data);
-                messageDelegate(message);
-            }
-        }
-
-        static private void MessageReceived(string message)
-        {
-            string x = message.Substring(message.Length - 4);
-            if (x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
-            message = message.Substring(0, message.Length - 4);
-#if DEBUG
-            Console.WriteLine(message);
-#endif
-            ResponseMessage(message);
-
-        }
-
-        static void Send(string toSend)
-        {
-            lastNumber2 = lastNumber;
-            lastNumber = rnd.Next(1000, 9999);
-            toSend = toSend + Convert.ToString(lastNumber);
-            byte[] data = Encoding.ASCII.GetBytes(toSend);
-            sendingClient.Send(data, data.Length);
+            p2p.Send($"MasterNode.Program.CheckNr({Nr},\"{wallet}\" );");
         }
 
         static public void ResponseMessage(string message)

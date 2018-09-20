@@ -10,6 +10,7 @@ namespace Bolis
         public main()
         {
             InitializeComponent();
+            P2P p2p = new P2P();
         }
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
