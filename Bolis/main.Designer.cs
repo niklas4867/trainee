@@ -30,9 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.btnCheck = new System.Windows.Forms.Button();
-            this.btnTestName = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,16 +46,17 @@
             this.txtSender = new System.Windows.Forms.TextBox();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
-            this.panelTransaktionen = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panelKontostand = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnTestName = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.panelTransaktion = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelUeberweisungen.SuspendLayout();
-            this.panelTransaktionen.SuspendLayout();
             this.panelKontostand.SuspendLayout();
+            this.panelTransaktion.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCheck
@@ -70,26 +69,6 @@
             this.btnCheck.Text = "Überprüfe Integrität";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-            // 
-            // btnTestName
-            // 
-            this.btnTestName.Location = new System.Drawing.Point(744, 492);
-            this.btnTestName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-            this.btnTestName.Name = "btnTestName";
-            this.btnTestName.Size = new System.Drawing.Size(147, 43);
-            this.btnTestName.TabIndex = 103;
-            this.btnTestName.Text = "Überprüfen";
-            this.btnTestName.UseVisualStyleBackColor = true;
-            this.btnTestName.Click += new System.EventHandler(this.btnTestName_Click);
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(523, 492);
-            this.txtName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(196, 53);
-            this.txtName.TabIndex = 101;
-            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // pictureBox3
             // 
@@ -181,6 +160,7 @@
             // 
             // panelUeberweisungen
             // 
+            this.panelUeberweisungen.Controls.Add(this.panelTransaktion);
             this.panelUeberweisungen.Controls.Add(this.txtBetrag);
             this.panelUeberweisungen.Controls.Add(this.button4);
             this.panelUeberweisungen.Controls.Add(this.button3);
@@ -189,8 +169,6 @@
             this.panelUeberweisungen.Controls.Add(this.txtSender);
             this.panelUeberweisungen.Controls.Add(this.btn2);
             this.panelUeberweisungen.Controls.Add(this.btn1);
-            this.panelUeberweisungen.Controls.Add(this.panelTransaktionen);
-            this.panelUeberweisungen.Controls.Add(this.panelKontostand);
             this.panelUeberweisungen.Location = new System.Drawing.Point(0, 211);
             this.panelUeberweisungen.Name = "panelUeberweisungen";
             this.panelUeberweisungen.Size = new System.Drawing.Size(1260, 470);
@@ -267,6 +245,7 @@
             this.txtEmpfaenger.Name = "txtEmpfaenger";
             this.txtEmpfaenger.Size = new System.Drawing.Size(196, 53);
             this.txtEmpfaenger.TabIndex = 111;
+            this.txtEmpfaenger.TextChanged += new System.EventHandler(this.txtEmpfaenger_TextChanged);
             // 
             // txtSender
             // 
@@ -275,6 +254,7 @@
             this.txtSender.Name = "txtSender";
             this.txtSender.Size = new System.Drawing.Size(196, 53);
             this.txtSender.TabIndex = 110;
+            this.txtSender.TextChanged += new System.EventHandler(this.txtSender_TextChanged);
             // 
             // btn2
             // 
@@ -306,45 +286,53 @@
             this.btn1.TabIndex = 114;
             this.btn1.UseVisualStyleBackColor = true;
             // 
-            // panelTransaktionen
-            // 
-            this.panelTransaktionen.Controls.Add(this.label3);
-            this.panelTransaktionen.Location = new System.Drawing.Point(0, 389);
-            this.panelTransaktionen.Name = "panelTransaktionen";
-            this.panelTransaktionen.Size = new System.Drawing.Size(1260, 81);
-            this.panelTransaktionen.TabIndex = 109;
-            this.panelTransaktionen.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(468, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(272, 46);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Transaktionen";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
-            // 
             // panelKontostand
             // 
-            this.panelKontostand.Controls.Add(this.label2);
-            this.panelKontostand.Location = new System.Drawing.Point(0, 345);
+            this.panelKontostand.Controls.Add(this.btnTestName);
+            this.panelKontostand.Controls.Add(this.txtName);
+            this.panelKontostand.Location = new System.Drawing.Point(3, 211);
             this.panelKontostand.Name = "panelKontostand";
-            this.panelKontostand.Size = new System.Drawing.Size(1260, 125);
+            this.panelKontostand.Size = new System.Drawing.Size(1260, 470);
             this.panelKontostand.TabIndex = 109;
             this.panelKontostand.Visible = false;
             // 
-            // label2
+            // btnTestName
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(474, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 46);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Kontostand";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.btnTestName.Location = new System.Drawing.Point(667, 110);
+            this.btnTestName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.btnTestName.Name = "btnTestName";
+            this.btnTestName.Size = new System.Drawing.Size(147, 43);
+            this.btnTestName.TabIndex = 105;
+            this.btnTestName.Text = "Überprüfen";
+            this.btnTestName.UseVisualStyleBackColor = true;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(446, 110);
+            this.txtName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(196, 53);
+            this.txtName.TabIndex = 104;
+            // 
+            // panelTransaktion
+            // 
+            this.panelTransaktion.Controls.Add(this.label1);
+            this.panelTransaktion.Location = new System.Drawing.Point(0, 3);
+            this.panelTransaktion.Name = "panelTransaktion";
+            this.panelTransaktion.Size = new System.Drawing.Size(1252, 467);
+            this.panelTransaktion.TabIndex = 120;
+            this.panelTransaktion.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(272, 46);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Transaktionen";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // main
             // 
@@ -359,9 +347,8 @@
             this.Controls.Add(this.btnKontostand);
             this.Controls.Add(this.btnueberweisen);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnTestName);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnCheck);
+            this.Controls.Add(this.panelKontostand);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
@@ -373,18 +360,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelUeberweisungen.ResumeLayout(false);
             this.panelUeberweisungen.PerformLayout();
-            this.panelTransaktionen.ResumeLayout(false);
-            this.panelTransaktionen.PerformLayout();
             this.panelKontostand.ResumeLayout(false);
             this.panelKontostand.PerformLayout();
+            this.panelTransaktion.ResumeLayout(false);
+            this.panelTransaktion.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnCheck;
-        private System.Windows.Forms.Button btnTestName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnueberweisen;
@@ -392,12 +377,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Panel panelUeberweisungen;
-        private System.Windows.Forms.Panel panelTransaktionen;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panelKontostand;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -406,6 +387,10 @@
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.TextBox txtBetrag;
+        private System.Windows.Forms.Button btnTestName;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.FlowLayoutPanel panelTransaktion;
+        private System.Windows.Forms.Label label1;
     }
 }
 

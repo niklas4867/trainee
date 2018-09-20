@@ -53,7 +53,7 @@ namespace Bolis
         {
             panelUeberweisungen.Visible = true;
             panelKontostand.Visible = false;
-            panelTransaktionen.Visible = true;
+            panelTransaktion.Visible = true;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -63,16 +63,16 @@ namespace Bolis
 
         private void btnKontostand_Click(object sender, EventArgs e)
         {
-            panelUeberweisungen.Visible = true;
+            panelUeberweisungen.Visible = false;
             panelKontostand.Visible = true;
-            panelTransaktionen.Visible = false;
+            panelTransaktion.Visible = false;
         }
 
         private void btnUeberweisen_Click(object sender, EventArgs e)
         {
             panelUeberweisungen.Visible = true;
             panelKontostand.Visible = false;
-            panelTransaktionen.Visible = false;
+            panelTransaktion.Visible = false;
             btnueberweisen.BackColor = Color.FromArgb(66,66,66);
         }
 
@@ -100,6 +100,21 @@ namespace Bolis
         }
 
         private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmpfaenger_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSender_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
