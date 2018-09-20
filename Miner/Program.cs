@@ -40,30 +40,31 @@ namespace miner
 
             while (true) //mining Script -- Mehr als Demontstration, Keine Leistungsoptimierung
             {
-                while (true)
-                {
                     randomNr = rnd.Next(0, 999999999);
                     Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(randomNr))));
 #if DEBUG
                     //Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);             
 #endif
-                    if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))) { break; }
-
-                }
+                    if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif)))
+                    {
 #if DEBUG
-                Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);
-                //Console.ReadKey();
+                        Console.WriteLine(Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);
+                        //Console.ReadKey();
 
 #endif
-                Thread check = new Thread(() => CheckNr(randomNr));
-                check.Start();
+                        Thread check = new Thread(() => CheckNr(randomNr));
+                        check.Start();
+
+                    }
+
+              
             }
 
         }
 
         public static void GetDif()
         {
-            dif = 5;
+            dif = 3;
             while (true) //Dummy -- Funktionalität kommt noch
             {
                 
