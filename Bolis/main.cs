@@ -8,7 +8,7 @@ namespace Bolis
     public partial class main : Form
     {
         static public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
-
+        private BCPusher bcpusher = new BCPusher();
         public main()
         {
             InitializeComponent();

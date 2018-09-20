@@ -10,15 +10,15 @@ namespace Bolis
 {
     class BCPusher
     {
-        P2P BCP2P = new P2P(null,54544);
-        public BCPusher()
+        static P2P BCP2P = new P2P("255.255.255.255",54544);
+        static BCPusher()
         {
             ThreadStart sender = new ThreadStart(Sender); //Erstelle neuen Thread
             Thread dif = new Thread(sender);
             dif.Start();
         }
 
-        public void Sender()
+        static public void Sender()
         {
             while(true)
             {
