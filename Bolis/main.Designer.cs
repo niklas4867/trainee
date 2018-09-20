@@ -42,6 +42,9 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnueberweisen = new System.Windows.Forms.Button();
+            this.btnKontostand = new System.Windows.Forms.Button();
+            this.btnTransaktionen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,12 +170,42 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Betrag";
             // 
+            // btnueberweisen
+            // 
+            this.btnueberweisen.Location = new System.Drawing.Point(408, 181);
+            this.btnueberweisen.Name = "btnueberweisen";
+            this.btnueberweisen.Size = new System.Drawing.Size(144, 45);
+            this.btnueberweisen.TabIndex = 105;
+            this.btnueberweisen.Text = "Überweisen";
+            this.btnueberweisen.UseVisualStyleBackColor = true;
+            // 
+            // btnKontostand
+            // 
+            this.btnKontostand.Location = new System.Drawing.Point(558, 181);
+            this.btnKontostand.Name = "btnKontostand";
+            this.btnKontostand.Size = new System.Drawing.Size(144, 45);
+            this.btnKontostand.TabIndex = 105;
+            this.btnKontostand.Text = "Kontostand";
+            this.btnKontostand.UseVisualStyleBackColor = true;
+            // 
+            // btnTransaktionen
+            // 
+            this.btnTransaktionen.Location = new System.Drawing.Point(708, 181);
+            this.btnTransaktionen.Name = "btnTransaktionen";
+            this.btnTransaktionen.Size = new System.Drawing.Size(144, 45);
+            this.btnTransaktionen.TabIndex = 105;
+            this.btnTransaktionen.Text = "Transaktionen";
+            this.btnTransaktionen.UseVisualStyleBackColor = true;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnTransaktionen);
+            this.Controls.Add(this.btnKontostand);
+            this.Controls.Add(this.btnueberweisen);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnTestName);
             this.Controls.Add(this.label4);
@@ -212,6 +245,9 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnueberweisen;
+        private System.Windows.Forms.Button btnKontostand;
+        private System.Windows.Forms.Button btnTransaktionen;
     }
 }
 
