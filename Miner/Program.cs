@@ -71,7 +71,7 @@ namespace miner
             Console.WriteLine(message.Substring(0, 6));
             if(message.Substring(0,6) == "SetDif")
             {
-                dif = Convert.ToInt32(message.Substring(6, message.Length));
+                dif = Convert.ToInt32(message.Substring(6));
             }
         }
     }
