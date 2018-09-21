@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -150,6 +153,13 @@ namespace Bolis
         private void btnTransAkt_Click(object sender, EventArgs e)
         {
             txtTransaktionen.Text = Bolis.GetTransaktions(User);
+        }
+        static public void ResponseMessage(string message)
+        {
+            Debug.WriteLine("Blockchian");
+            BC.Add(new Blockchain());
+            JsonConvert.PopulateObject(JsonConvert.SerializeObject(main.Bolis, Formatting.Indented), BC[BC.Count]);
+            Debug.WriteLine(JsonConvert.SerializeObject(BC[BC.Count]), Formatting.Indented);
         }
     }
 }
