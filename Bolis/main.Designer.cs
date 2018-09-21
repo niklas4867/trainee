@@ -38,6 +38,8 @@
             this.btnueberweisen = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelUeberweisungen = new System.Windows.Forms.Panel();
+            this.panelTransaktion = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtBetrag = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -49,14 +51,12 @@
             this.panelKontostand = new System.Windows.Forms.Panel();
             this.btnTestName = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.panelTransaktion = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelUeberweisungen.SuspendLayout();
-            this.panelKontostand.SuspendLayout();
             this.panelTransaktion.SuspendLayout();
+            this.panelKontostand.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCheck
@@ -99,11 +99,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(698, 165);
+            this.button1.Location = new System.Drawing.Point(692, 165);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 40);
             this.button1.TabIndex = 105;
-            this.button1.Text = "n";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnueberweisen_Click);
             // 
@@ -119,7 +118,7 @@
             this.btnKontostand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKontostand.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKontostand.ForeColor = System.Drawing.Color.White;
-            this.btnKontostand.Location = new System.Drawing.Point(530, 165);
+            this.btnKontostand.Location = new System.Drawing.Point(532, 165);
             this.btnKontostand.Name = "btnKontostand";
             this.btnKontostand.Size = new System.Drawing.Size(150, 40);
             this.btnKontostand.TabIndex = 105;
@@ -176,13 +175,33 @@
             this.panelUeberweisungen.TabIndex = 108;
             this.panelUeberweisungen.Visible = false;
             // 
+            // panelTransaktion
+            // 
+            this.panelTransaktion.Controls.Add(this.label1);
+            this.panelTransaktion.Location = new System.Drawing.Point(0, 3);
+            this.panelTransaktion.Name = "panelTransaktion";
+            this.panelTransaktion.Size = new System.Drawing.Size(1252, 467);
+            this.panelTransaktion.TabIndex = 120;
+            this.panelTransaktion.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(221, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Transaktionen";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // txtBetrag
             // 
             this.txtBetrag.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtBetrag.Location = new System.Drawing.Point(783, 134);
             this.txtBetrag.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtBetrag.Name = "txtBetrag";
-            this.txtBetrag.Size = new System.Drawing.Size(200, 53);
+            this.txtBetrag.Size = new System.Drawing.Size(200, 44);
             this.txtBetrag.TabIndex = 119;
             // 
             // button4
@@ -244,7 +263,7 @@
             this.txtEmpfaenger.Location = new System.Drawing.Point(507, 134);
             this.txtEmpfaenger.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtEmpfaenger.Name = "txtEmpfaenger";
-            this.txtEmpfaenger.Size = new System.Drawing.Size(196, 53);
+            this.txtEmpfaenger.Size = new System.Drawing.Size(196, 44);
             this.txtEmpfaenger.TabIndex = 111;
             this.txtEmpfaenger.TextChanged += new System.EventHandler(this.txtEmpfaenger_TextChanged);
             // 
@@ -253,7 +272,7 @@
             this.txtSender.Location = new System.Drawing.Point(234, 134);
             this.txtSender.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtSender.Name = "txtSender";
-            this.txtSender.Size = new System.Drawing.Size(196, 53);
+            this.txtSender.Size = new System.Drawing.Size(196, 44);
             this.txtSender.TabIndex = 110;
             this.txtSender.TextChanged += new System.EventHandler(this.txtSender_TextChanged);
             // 
@@ -312,32 +331,12 @@
             this.txtName.Location = new System.Drawing.Point(446, 110);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(196, 53);
+            this.txtName.Size = new System.Drawing.Size(196, 44);
             this.txtName.TabIndex = 104;
-            // 
-            // panelTransaktion
-            // 
-            this.panelTransaktion.Controls.Add(this.label1);
-            this.panelTransaktion.Location = new System.Drawing.Point(0, 3);
-            this.panelTransaktion.Name = "panelTransaktion";
-            this.panelTransaktion.Size = new System.Drawing.Size(1252, 467);
-            this.panelTransaktion.TabIndex = 120;
-            this.panelTransaktion.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 46);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Transaktionen";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
@@ -361,10 +360,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelUeberweisungen.ResumeLayout(false);
             this.panelUeberweisungen.PerformLayout();
-            this.panelKontostand.ResumeLayout(false);
-            this.panelKontostand.PerformLayout();
             this.panelTransaktion.ResumeLayout(false);
             this.panelTransaktion.PerformLayout();
+            this.panelKontostand.ResumeLayout(false);
+            this.panelKontostand.PerformLayout();
             this.ResumeLayout(false);
 
         }
