@@ -8,6 +8,7 @@ using System.IO;
 using System.CodeDom.Compiler;
 using Microsoft.CSharp;
 using System.Threading;
+using System.Diagnostics;
 
 namespace MasterNode
 {
@@ -17,24 +18,35 @@ namespace MasterNode
         static List<int> numbers = new List<int>();
         static public int dif = 3;
         static int sek = 0;
+        static public string returnCode = "";
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
         static P2P p2p = new P2P();
 
+
+
         static void Main(string[] args)
         {
+            p2p.InitializeSender("255.255.255.255", 54545);
+            p2p.InitializeReceiver(54544);
 
             ThreadStart getdif = new ThreadStart(SetDif); //Erstelle neuen Thread (GETDIF)
             Thread dif = new Thread(getdif);
             dif.Start();
+
             Console.ReadKey();
         }
 
-        static public void RealtimeCompiler(string Command) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
+        static public string RealtimeCompiler(string Command) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
         {
-
+            if(Command.Substring(Command.Length-1) != ";")
+            {
+                Command += "MasterNode.Program.returnCode = Convert.ToString(" + Command + ");";
+            }
+            
             string code = @"
+    using MasterNode;
     using System;
 
     namespace First
@@ -43,13 +55,13 @@ namespace MasterNode
         {
             public static void Main()
             {
-            " +
-                Command
-                + @"
+                "+Command+@"  
+                        
             }
         }
     }
 ";
+            //Debug.WriteLine(code);
             parameters.GenerateInMemory = true; //Code zu Maschinencode
             parameters.GenerateExecutable = true;
             string exePath = Assembly.GetExecutingAssembly().Location;
@@ -99,6 +111,7 @@ namespace MasterNode
                 Console.WriteLine("Error");
 #endif
             }
+            return returnCode;
 
         }
 
@@ -117,9 +130,10 @@ namespace MasterNode
                 numbers.Add(Nr);
                 Console.WriteLine($"Block wurde von {wallet} nach {MasterNode.Program.sek} Sekunden abgebaut");
                 Bolis.AddBlock(new Block(DateTime.Now, null, $"{{sender:\"MasterNode\",receiver:{wallet},amount:1}}"));
-                if(MasterNode.Program.sek > 60) { MasterNode.Program.dif--; }
+                if(MasterNode.Program.sek > 60 && dif > 2) { MasterNode.Program.dif--; }
                 else if (MasterNode.Program.sek < 60) { MasterNode.Program.dif++; }
-                Console.WriteLine("Neue Schwierigkeit: {MasterNode.Program.dif}");
+                else { MasterNode.Program.sek = 0; return; }
+                Console.WriteLine($"Neue Schwierigkeit: {MasterNode.Program.dif}");
                 MasterNode.Program.sek = 0;
             }
             else
@@ -132,7 +146,7 @@ namespace MasterNode
 
         static public void ResponseMessage(string message) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
         {
-            RealtimeCompiler(message);
+            p2p.Send(RealtimeCompiler(message));
         }
 
         static public void SetDif()
@@ -140,9 +154,9 @@ namespace MasterNode
             while (true)
             {
                 p2p.Send("SetDif" + dif);
-                Thread.Sleep(4990);
-                sek = sek + 5;
-                if (sek >= 80) { dif--; sek = 0; Console.WriteLine($"Neue Schwieriegkeit: {dif}"); }
+                Thread.Sleep(9990);
+                sek = sek + 10;
+                if (sek >= 80 && dif > 2) { dif--; sek = 0; Console.WriteLine($"Neue Schwieriegkeit: {dif}"); }
             }
         }
     }

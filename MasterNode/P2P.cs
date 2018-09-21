@@ -12,7 +12,8 @@ namespace MasterNode
         delegate void AddMessage(string message);
         Random rnd = new Random();
 
-        int port;
+        int sPort;
+        int rPort;
         string broadcastAddress;
         public int lastNumber;
         public int lastNumber2;
@@ -20,34 +21,34 @@ namespace MasterNode
         UdpClient sendingClient;
         static Thread receivingThread;
 
-        public P2P(string ip = "255.255.255.255", int p = 54545)
+        public P2P()
         {
-            port = p;
+        }
+
+        public void InitializeSender(string ip = "255.255.255.255", int p = 54545)
+        {
+            sPort = p;
             broadcastAddress = ip;
-            InitializeSender();
-            InitializeReceiver();
-        }
-
-        public void InitializeSender()
-        {
-            sendingClient = new UdpClient(broadcastAddress, port);
+            sendingClient = new UdpClient(broadcastAddress, sPort);
             sendingClient.EnableBroadcast = true;
+            
         }
 
-        public void InitializeReceiver()
+        public void InitializeReceiver(int p = 54545)
         {
-            receivingClient = new UdpClient(port);
+            rPort = p;
+            receivingClient = new UdpClient(rPort);
 
             ThreadStart start = new ThreadStart(Receiver);
             receivingThread = new Thread(start);
-            receivingThread.IsBackground = true;
+            //receivingThread.IsBackground = true;
             receivingThread.Start();
         }
 
 
         public void Receiver()
         {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, rPort);
             AddMessage messageDelegate = MessageReceived;
 
             while (true)
@@ -66,7 +67,8 @@ namespace MasterNode
 #if DEBUG
             Debug.WriteLine("P2P: " + message);
 #endif
-            Program.ResponseMessage(message);
+            var t = new Thread(() => Program.ResponseMessage(message));
+            t.Start();
 
         }
 
@@ -77,6 +79,7 @@ namespace MasterNode
             toSend = toSend + Convert.ToString(lastNumber);
             byte[] data = Encoding.ASCII.GetBytes(toSend);
             sendingClient.Send(data, data.Length);
+            Debug.WriteLine("P2P Out: " + toSend);
         }
     }
 }

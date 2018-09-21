@@ -9,8 +9,9 @@ namespace Bolis
 {
     public partial class main : Form
     {
-        public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
         public const string User = "TestUser";
+        P2P p2p = new P2P("255.255.255.255");
+
         public main()
         {
             InitializeComponent();
@@ -18,25 +19,19 @@ namespace Bolis
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
         {
-            Bolis.AddBlock(new Block(DateTime.Now, null, "{" + String.Format("sender:{0},receiver:{1},amount:{2:i}", User, txtEmpfaenger.Text, txtBetrag.Text) + "}"));
-
+            //Bolis.AddBlock(new Block(DateTime.Now, null, "{" + String.Format("sender:{0},receiver:{1},amount:{2:i}", User, txtEmpfaenger.Text, txtBetrag.Text) + "}"));
+            p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"))");
         }
 
         private void btnCheck_Click(object sender, EventArgs e) //Ruft die Überprüffunktion auf
         {
-            if (Bolis.IsValid())
-            {
-                MessageBox.Show("Die Blockchain ist Valid");
-            }
-            else
-            {
-                MessageBox.Show("Achtung! Die Blockchain ist Invalid");
-            }
+
         }
 
         private void btnTestName_Click(object sender, EventArgs e) //Fragt Kontostandfunktion auf
         {
-            MessageBox.Show($"Der Kontostand von {User} beträgt: {Bolis.GetMoney(User)} Bolis");
+            //MessageBox.Show($"Der Kontostand von {User} beträgt: {Bolis.GetMoney(User)} Bolis");
+            p2p.Send($"MasterNode.Program.Bolis.GetMoney(\"{User}\")");
         }
 
         private void txtBetrag_Click(object sender, EventArgs e)
@@ -152,14 +147,12 @@ namespace Bolis
 
         private void btnTransAkt_Click(object sender, EventArgs e)
         {
-            txtTransaktionen.Text = Bolis.GetTransaktions(User);
+            //txtTransaktionen.Text = Bolis.GetTransaktions(User);
+            p2p.Send($"MasterNode.Program.Bolis.GetTransaktions(\"{User}\")");
         }
         static public void ResponseMessage(string message)
         {
-            Debug.WriteLine("Blockchian");
-            BC.Add(new Blockchain());
-            JsonConvert.PopulateObject(JsonConvert.SerializeObject(main.Bolis, Formatting.Indented), BC[BC.Count]);
-            Debug.WriteLine(JsonConvert.SerializeObject(BC[BC.Count]), Formatting.Indented);
+
         }
     }
 }

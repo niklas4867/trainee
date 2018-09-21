@@ -19,8 +19,8 @@ namespace miner
 
         static void Main(string[] args)
         {
-
-            
+            p2p.InitializeSender("255.255.255.255", 54544);
+            p2p.InitializeReceiver(54545);
 
             Console.Write("Dein Wallet: ");
             wallet = Console.ReadLine();
@@ -68,6 +68,7 @@ namespace miner
 
         static public void ResponseMessage(string message)
         {
+            Console.WriteLine("P2P In: " + message);
             if(message.Substring(0,6) == "SetDif")
             {
                 dif = Convert.ToInt32(message.Substring(6));

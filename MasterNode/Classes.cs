@@ -54,7 +54,7 @@ namespace MasterNode
             return Chain[Chain.Count - 1];
         }
 
-        public void AddBlock(Block block) //Fügt Block hinzu (Zu Blockchain)
+        public string AddBlock(Block block) //Fügt Block hinzu (Zu Blockchain)
         {
             Block latestBlock = GetLatestBlock();
             block.Index = latestBlock.Index + 1;
@@ -64,6 +64,7 @@ namespace MasterNode
 #if DEBUG
             Debug.WriteLine(Convert.ToString(GetLatestBlock().Index) + " " + Convert.ToString(GetLatestBlock().Data) + " " + Convert.ToString(GetLatestBlock().Hash));
 #endif
+            return "Done";
         }
 
         public bool IsValid() //Überprüft alle Hash der Kette mit den nachfolgenden (Blockchain prinzip)
@@ -102,7 +103,20 @@ namespace MasterNode
             }
             return x;
         }
+        public string GetTransaktions(string Name)
+        {
+            string x = "";
+            for (int i = 1; i < Chain.Count; i++)
+            {
+                string[] a = Chain[i].Data.Split(new[] { "{sender:", ",receiver:", ",amount:", "}" }, StringSplitOptions.RemoveEmptyEntries);
+                if (a[0] == Name || a[1] == Name)
+                {
+                    x = x + $"Datum: {Chain[i].TimeStamp}, Sender: {a[0]}, Empfänger: {a[1]}, Betrag: {a[2]}\n";
+                }
+            }
+            return x;
 
 
+        }
     }
 }
