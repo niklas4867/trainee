@@ -133,8 +133,11 @@
   <data name="cross_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross_v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BOLIS5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BOLIS5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="empfaenger2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\empfaenger2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kontostand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kontostand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,14 +154,20 @@
   <data name="ueberweisen3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ueberweisen3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="empfaenger2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\empfaenger2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BOLIS5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BOLIS5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sender1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sender1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cross_v3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cross_v3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="betrag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\betrag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aktualisieren" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aktualisieren.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="betrag1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\betrag1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,6 +193,9 @@
   <data name="bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dein_kontostand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dein_kontostand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BOLIS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BOLIS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,7 +217,7 @@
   <data name="empfaenger1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\empfaenger1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cross_v3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cross_v3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -66,7 +66,7 @@ namespace Bolis
         private void btnUeberweisen_Click(object sender, EventArgs e)
         {
             panelUeberweisungen.Visible = true;
-            panelKontostand.Visible = false;
+            panelKontostand.Visible = true;
             panelTransaktion.Visible = false;
             btnueberweisen.BackColor = Color.FromArgb(60,60,60);
             btnTransaktionen.BackColor = Color.FromArgb(45, 45, 48);
@@ -127,8 +127,8 @@ namespace Bolis
 
         private void btntransaktionen_Click(object sender, EventArgs e)
         {
-            panelUeberweisungen.Visible = false;
-            panelKontostand.Visible = false;
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = true;
             panelTransaktion.Visible = true;
             btnTransaktionen.BackColor = Color.FromArgb(60, 60, 60);
             btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
@@ -152,6 +152,34 @@ namespace Bolis
         }
         static public void ResponseMessage(string message)
         {
+
+        }
+
+        private void main_Activated(object sender, EventArgs e)
+        {
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = false;
+            btnueberweisen.BackColor = Color.FromArgb(60, 60, 60);
+            txtUsername.Text = User;
+        }
+
+        private void panelTransaktion_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtEmpfaenger_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtBetrag_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
 
         }
     }
