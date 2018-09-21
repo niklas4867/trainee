@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Bolis
 {
@@ -50,7 +51,9 @@ namespace Bolis
 
         private void btnueberweisen_Click(object sender, EventArgs e)
         {
-
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = false;
+            panelTransaktion.Visible = true;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -60,10 +63,58 @@ namespace Bolis
 
         private void btnKontostand_Click(object sender, EventArgs e)
         {
-
+            panelUeberweisungen.Visible = false;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = false;
         }
 
         private void btnUeberweisen_Click(object sender, EventArgs e)
+        {
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = false;
+            panelTransaktion.Visible = false;
+            btnueberweisen.BackColor = Color.FromArgb(66,66,66);
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            txtSender.Text = "";
+            txtEmpfaenger.Text = "";
+            txtBetrag.Text = "";
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmpfaenger_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSender_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
