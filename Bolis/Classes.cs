@@ -102,5 +102,18 @@ namespace Bolis
             }
             return x;
         }
+        public string GetTransaktions(string Name) //Fragt Kontostand ab -- Nicht Endlösung
+        {
+            string x = "";
+            for (int i = 1; i < Chain.Count; i++)
+            {
+                string[] a = Chain[i].Data.Split(new[] { "{sender:", ",receiver:", ",amount:", "}" }, StringSplitOptions.RemoveEmptyEntries);
+                if (a[0] == Name || a[1] == Name)
+                {
+                    x = x + $"Sender: {a[0]}, Empfänger: {a[1]}, Betrag: {a[2]}\n";
+                }
+            }
+            return x;
+        }
     }
 }

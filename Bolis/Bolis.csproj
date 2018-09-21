@@ -37,10 +37,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>Bolis.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>bolis.ico</ApplicationIcon>
+    <ApplicationIcon>Logo %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeAnalysis, Version=2.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -301,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bolis.ico" />
+    <Content Include="Logo %281%29.ico" />
     <None Include="Resources\cross_v3.png" />
     <None Include="Resources\cross_v2.png" />
     <None Include="Resources\cross.png" />
