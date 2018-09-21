@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Bolis
 {
     public partial class main : Form
     {
-        public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
+        static public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
         P2P p2p = new P2P();
         BC bc = new BC();
         public main()
         {
             InitializeComponent();
             bc.StartThreat();
+
+       
         }
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
@@ -51,6 +54,8 @@ namespace Bolis
         }
         static public void ResponseMessage(string message)
         {
+
+            Debug.WriteLine("P2P: " + message);
 
         }
     }
