@@ -52,10 +52,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>Bolis.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>bolis.ico</ApplicationIcon>
+    <ApplicationIcon>Logo %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Humanizer, Version=2.5.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
@@ -325,6 +325,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bolis.ico" />
+    <Content Include="Logo %281%29.ico" />
+    <None Include="Resources\cross_v3.png" />
+    <None Include="Resources\cross_v2.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\checkmark1.png" />
+    <None Include="Resources\betrag1.png" />
+    <None Include="Resources\empfaenger2.png" />
+    <None Include="Resources\sender2.png" />
+    <None Include="Resources\bar1.png" />
+    <None Include="Resources\transaktionen.png" />
+    <None Include="Resources\ueberweisen3.png" />
+    <None Include="Resources\kontostand.png" />
+    <None Include="Resources\Unbenannt-31.png" />
+    <None Include="Resources\Unbenannt-3.png" />
+    <None Include="Resources\ueberweisen2.png" />
+    <None Include="Resources\ueberweisen1.png" />
+    <None Include="Resources\ueberweisen.png" />
     <None Include="Resources\asdasdasd.png" />
     <None Include="Resources\BOLIS5.png" />
     <None Include="Resources\BOLIS4.png" />
