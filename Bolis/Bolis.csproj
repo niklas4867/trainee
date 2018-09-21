@@ -302,6 +302,10 @@
   <ItemGroup>
     <Content Include="bolis.ico" />
     <Content Include="Logo %281%29.ico" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\dein_kontostand.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\aktualisieren.png" />
     <None Include="Resources\cross_v3.png" />
     <None Include="Resources\cross_v2.png" />
     <None Include="Resources\cross.png" />

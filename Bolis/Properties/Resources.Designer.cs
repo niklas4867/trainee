@@ -63,6 +63,16 @@ namespace Bolis.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aktualisieren {
+            get {
+                object obj = ResourceManager.GetObject("aktualisieren", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap asdasdasd {
             get {
                 object obj = ResourceManager.GetObject("asdasdasd", resourceCulture);
@@ -223,6 +233,16 @@ namespace Bolis.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dein_kontostand {
+            get {
+                object obj = ResourceManager.GetObject("dein_kontostand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap empfaenger {
             get {
                 object obj = ResourceManager.GetObject("empfaenger", resourceCulture);
@@ -256,6 +276,16 @@ namespace Bolis.Properties {
         internal static System.Drawing.Bitmap kontostand {
             get {
                 object obj = ResourceManager.GetObject("kontostand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh {
+            get {
+                object obj = ResourceManager.GetObject("refresh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -356,6 +386,16 @@ namespace Bolis.Properties {
         internal static System.Drawing.Bitmap Unbenannt_31 {
             get {
                 object obj = ResourceManager.GetObject("Unbenannt-31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
