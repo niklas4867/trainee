@@ -22,7 +22,8 @@ namespace MasterNode
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
-        static P2P p2p = new P2P("255.255.255.255");
+        static P2P p2p = new P2P("192.168.1.255"); //P2P
+        static P2P p2pm = new P2P("192.168.1.255", 54544); //P2P
 
 
 
@@ -40,7 +41,7 @@ namespace MasterNode
         {
             if(Command.Substring(Command.Length-1) != ";")
             {
-                Command += "MasterNode.Program.returnCode = Convert.ToString(" + Command + ");";
+                Command = "MasterNode.Program.returnCode = Convert.ToString(" + Command + ");";
             }
             
             string code = @"
@@ -142,16 +143,18 @@ namespace MasterNode
 
 
 
-        static public void ResponseMessage(string message) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
+        static public void ResponseMessage(string message)
         {
-            p2p.Send(RealtimeCompiler(message));
+            string x = RealtimeCompiler(message);
+            if(x != "") { p2p.Send(x); }
+            
         }
 
         static public void SetDif()
         {
             while (true)
             {
-                p2p.Send("SetDif" + dif);
+                p2pm.Send("SetDif" + dif);
                 Thread.Sleep(9990);
                 sek = sek + 10;
                 if (sek >= 80 && dif > 2) { dif--; sek = 0; Console.WriteLine($"Neue Schwieriegkeit: {dif}"); }

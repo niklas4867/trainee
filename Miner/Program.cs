@@ -13,7 +13,7 @@ namespace miner
         static int randomNr;
         static int dif = 9;
         static string wallet;
-        static P2P p2p = new P2P();
+        static P2P p2p = new P2P("192.168.1.255", 54544);
 
 
         static void Main(string[] args)
@@ -48,6 +48,7 @@ namespace miner
                     //Console.ReadKey();
 
 #endif
+                    Console.WriteLine("Neuer Block: " + Convert.ToString(dif) + " " + Convert.ToString(randomNr) + " " + Hash);
                     Thread check = new Thread(() => CheckNr(randomNr));
                     check.Start();
                     Thread.Sleep(2000);
@@ -65,7 +66,7 @@ namespace miner
 
         static public void ResponseMessage(string message)
         {
-            Console.WriteLine("P2P In: " + message);
+            //Console.WriteLine("P2P In: " + message);
             if(message.Substring(0,6) == "SetDif")
             {
                 dif = Convert.ToInt32(message.Substring(6));

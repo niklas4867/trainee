@@ -324,6 +324,11 @@
   <ItemGroup>
     <Content Include="bolis.ico" />
     <Content Include="Logo %281%29.ico" />
+    <None Include="Resources\empfänger.png" />
+    <None Include="Resources\sender3.png" />
+    <None Include="Resources\betrag2.png" />
+    <None Include="Resources\uhrzeit.png" />
+    <None Include="Resources\datum.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\dein_kontostand.png" />
     <None Include="Resources\refresh.png" />

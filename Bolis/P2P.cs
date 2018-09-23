@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace Bolis
 {
@@ -11,7 +12,6 @@ namespace Bolis
     {
         delegate void AddMessage(string message);
         Random rnd = new Random();
-
         int port;
         string broadcastAddress;
         public int lastNumber;
@@ -60,13 +60,17 @@ namespace Bolis
 
         public void MessageReceived(string message)
         {
-            string x = message.Substring(message.Length - 4);
-            if (x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
-            message = message.Substring(0, message.Length - 4);
+            try
+            {
+                string x = message.Substring(message.Length - 4);
+                if (x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
+                message = message.Substring(0, message.Length - 4);
 #if DEBUG
-            Debug.WriteLine("P2P: " + message);
+                Debug.WriteLine("P2P: " + message);
 #endif
-            main.ResponseMessage(message);
+                main.ResponseMessage(message: message);
+            }
+            catch { Debug.WriteLine("Error0: " + message); }
 
         }
 

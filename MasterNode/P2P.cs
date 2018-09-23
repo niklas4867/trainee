@@ -60,18 +60,24 @@ namespace MasterNode
 
         public void MessageReceived(string message)
         {
-            string x = message.Substring(message.Length - 4);
-            if (x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
-            message = message.Substring(0, message.Length - 4);
+            try
+            {
+                string x = message.Substring(message.Length - 4);
+                if (x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
+                message = message.Substring(0, message.Length - 4);
 #if DEBUG
-            Debug.WriteLine("P2P: " + message);
+                //Debug.WriteLine("In: " + message);
 #endif
-            Program.ResponseMessage(message);
+                Program.ResponseMessage(message);
+            }
+            catch { Debug.WriteLine("Error: " + message); }
+
 
         }
 
         public void Send(string toSend)
         {
+            //Debug.WriteLine("Out: " + toSend);
             lastNumber2 = lastNumber;
             lastNumber = rnd.Next(1000, 9999);
             toSend = toSend + Convert.ToString(lastNumber);

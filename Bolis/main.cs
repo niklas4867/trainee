@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Bolis
 {
     public partial class main : Form
     {
-        public const string User = "TestUser";
-        P2P p2p = new P2P("192.168.43.77");
+        public const string User = "Merlin";
+        P2P p2p = new P2P("192.168.1.255");
+        static public string x;
+        static public string y;
 
         public main()
         {
@@ -20,18 +21,15 @@ namespace Bolis
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
         {
             //Bolis.AddBlock(new Block(DateTime.Now, null, "{" + String.Format("sender:{0},receiver:{1},amount:{2:i}", User, txtEmpfaenger.Text, txtBetrag.Text) + "}"));
-            p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"))");
-        }
-
-        private void btnCheck_Click(object sender, EventArgs e) //Ruft die Überprüffunktion auf
-        {
-
+            p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"));");
         }
 
         private void btnTestName_Click(object sender, EventArgs e) //Fragt Kontostandfunktion auf
         {
             //MessageBox.Show($"Der Kontostand von {User} beträgt: {Bolis.GetMoney(User)} Bolis");
             p2p.Send($"MasterNode.Program.Bolis.GetMoney(\"{User}\")");
+            Thread.Sleep(100);
+            txtKontostand.Text = x;
         }
 
         private void txtBetrag_Click(object sender, EventArgs e)
@@ -39,21 +37,9 @@ namespace Bolis
             txtBetrag.Text = "";
         }
 
-        private void btnueberweisen_Click(object sender, EventArgs e)
-        {
-            panelUeberweisungen.Visible = true;
-            panelKontostand.Visible = false;
-            panelTransaktion.Visible = true;
-            
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnKontostand_Click(object sender, EventArgs e)
         {
+            ResetTxt();
             btnTestName_Click(sender, e);
             panelUeberweisungen.Visible = false;
             panelKontostand.Visible = true;
@@ -61,10 +47,13 @@ namespace Bolis
             btnKontostand.BackColor = Color.FromArgb(60, 60, 60);
             btnueberweisen.BackColor = Color.FromArgb(45,45,48);
             btnTransaktionen.BackColor = Color.FromArgb(45,45,48);
+
+            btnTestName_Click(sender, e);
         }
 
         private void btnUeberweisen_Click(object sender, EventArgs e)
         {
+            ResetTxt();
             panelUeberweisungen.Visible = true;
             panelKontostand.Visible = true;
             panelTransaktion.Visible = false;
@@ -80,41 +69,6 @@ namespace Bolis
 
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmpfaenger_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSender_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnueberweisen_MouseHover(object sender, EventArgs e)
         {
             btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
@@ -127,32 +81,36 @@ namespace Bolis
 
         private void btntransaktionen_Click(object sender, EventArgs e)
         {
+            ResetTxt();
             panelUeberweisungen.Visible = true;
             panelKontostand.Visible = true;
             panelTransaktion.Visible = true;
             btnTransaktionen.BackColor = Color.FromArgb(60, 60, 60);
             btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
             btnKontostand.BackColor = Color.FromArgb(45, 45, 48);
-        }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTransaktionen_TextChanged(object sender, EventArgs e)
-        {
-
+            btnTransAkt_Click(sender, e);
         }
 
         private void btnTransAkt_Click(object sender, EventArgs e)
         {
             //txtTransaktionen.Text = Bolis.GetTransaktions(User);
             p2p.Send($"MasterNode.Program.Bolis.GetTransaktions(\"{User}\")");
+
+            Thread.Sleep(100);
+            txtTransaktionen.Text = y;
         }
+
         static public void ResponseMessage(string message)
         {
-
+            if (message.Substring(0, $"SetMon{User}".Length) == $"SetMon{User}")
+            {
+                x = $"{message.Substring($"SetMon{User}".Length)} Bolis";
+            }
+            else if (message.Substring(0, $"SetTra{User}".Length) == $"SetTra{User}")
+            {
+                y = message.Substring($"SetTra{User}".Length);
+            }
         }
 
         private void main_Activated(object sender, EventArgs e)
@@ -162,11 +120,6 @@ namespace Bolis
             panelTransaktion.Visible = false;
             btnueberweisen.BackColor = Color.FromArgb(60, 60, 60);
             txtUsername.Text = User;
-        }
-
-        private void panelTransaktion_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void txtEmpfaenger_KeyPress(object sender, KeyPressEventArgs e)
@@ -181,6 +134,28 @@ namespace Bolis
                 e.Handled = true;
             }
 
+        }
+
+        private void ResetTxt()
+        {
+            txtKontostand.Text = "";
+            txtBetrag.Text = "";
+            txtEmpfaenger.Text = "";
+            txtTransaktionen.Text = "";
+            x = "";
+            y = "";
+        }
+
+        private void btn2_Click_1(object sender, EventArgs e)
+        {
+            ResetTxt();
+        }
+
+        private void ChangeTxT()
+        {
+            txtKontostand.Text = x;
+            txtTransaktionen.Text = y;
+            Thread.Sleep(500);
         }
     }
 }
