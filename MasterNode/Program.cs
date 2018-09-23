@@ -22,14 +22,12 @@ namespace MasterNode
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
-        static P2P p2p = new P2P();
+        static P2P p2p = new P2P("255.255.255.255");
 
 
 
         static void Main(string[] args)
         {
-            p2p.InitializeSender("255.255.255.255", 54545);
-            p2p.InitializeReceiver(54544);
 
             ThreadStart getdif = new ThreadStart(SetDif); //Erstelle neuen Thread (GETDIF)
             Thread dif = new Thread(getdif);

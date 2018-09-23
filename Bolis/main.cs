@@ -10,7 +10,7 @@ namespace Bolis
     public partial class main : Form
     {
         public const string User = "TestUser";
-        P2P p2p = new P2P("255.255.255.255");
+        P2P p2p = new P2P("192.168.43.77");
 
         public main()
         {

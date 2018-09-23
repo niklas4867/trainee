@@ -8,13 +8,12 @@ using System.Threading;
 
 namespace miner
 {
-    class P2P//V0.1
+    class P2P //V0.1
     {
         delegate void AddMessage(string message);
         Random rnd = new Random();
 
-        int sPort;
-        int rPort;
+        int port;
         string broadcastAddress;
         public int lastNumber;
         public int lastNumber2;
@@ -22,34 +21,34 @@ namespace miner
         UdpClient sendingClient;
         static Thread receivingThread;
 
-        public P2P()
+        public P2P(string ip = "255.255.255.255", int p = 54545)
         {
-        }
-
-        public void InitializeSender(string ip = "255.255.255.255", int p = 54545)
-        {
-            sPort = p;
+            port = p;
             broadcastAddress = ip;
-            sendingClient = new UdpClient(broadcastAddress, sPort);
-            sendingClient.EnableBroadcast = true;
-
+            InitializeSender();
+            InitializeReceiver();
         }
 
-        public void InitializeReceiver(int p = 54545)
+        public void InitializeSender()
         {
-            rPort = p;
-            receivingClient = new UdpClient(rPort);
+            sendingClient = new UdpClient(broadcastAddress, port);
+            sendingClient.EnableBroadcast = true;
+        }
+
+        public void InitializeReceiver()
+        {
+            receivingClient = new UdpClient(port);
 
             ThreadStart start = new ThreadStart(Receiver);
             receivingThread = new Thread(start);
-            //receivingThread.IsBackground = true;
+            receivingThread.IsBackground = true;
             receivingThread.Start();
         }
 
 
         public void Receiver()
         {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, rPort);
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
             AddMessage messageDelegate = MessageReceived;
 
             while (true)
@@ -68,8 +67,7 @@ namespace miner
 #if DEBUG
             Debug.WriteLine("P2P: " + message);
 #endif
-            var t = new Thread(() => Program.ResponseMessage(message));
-            t.Start();
+            Program.ResponseMessage(message);
 
         }
 
@@ -80,9 +78,9 @@ namespace miner
             toSend = toSend + Convert.ToString(lastNumber);
             byte[] data = Encoding.ASCII.GetBytes(toSend);
             sendingClient.Send(data, data.Length);
-            Console.WriteLine("P2P Out: " + toSend);
         }
+
     }
-    
-        }
+
+}
 

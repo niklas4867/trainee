@@ -13,14 +13,11 @@ namespace miner
         static int randomNr;
         static int dif = 9;
         static string wallet;
-
         static P2P p2p = new P2P();
 
 
         static void Main(string[] args)
         {
-            p2p.InitializeSender("255.255.255.255", 54544);
-            p2p.InitializeReceiver(54545);
 
             Console.Write("Dein Wallet: ");
             wallet = Console.ReadLine();
