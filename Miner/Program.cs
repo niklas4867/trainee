@@ -13,7 +13,7 @@ namespace miner
         static int randomNr;
         static int dif = 9;
         static string wallet;
-        static P2P p2p = new P2P("192.168.1.255", 54544);
+        static P2P p2p = new P2P("192.168.81.255", 54544);
 
 
         static void Main(string[] args)

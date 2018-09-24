@@ -22,8 +22,8 @@ namespace MasterNode
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
-        static P2P p2p = new P2P("192.168.1.255"); //P2P
-        static P2P p2pm = new P2P("192.168.1.255", 54544); //P2P
+        static P2P p2p = new P2P("192.168.81.255"); //P2P
+        static P2P p2pm = new P2P("192.168.81.255", 54544); //P2P
 
 
 

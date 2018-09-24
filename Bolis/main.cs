@@ -8,8 +8,8 @@ namespace Bolis
 {
     public partial class main : Form
     {
-        public const string User = "Merlin";
-        P2P p2p = new P2P("192.168.1.255");
+        public const string User = "Luca";
+        P2P p2p = new P2P("192.168.81.255");
         static public string x;
         static public string y;
 
@@ -20,8 +20,11 @@ namespace Bolis
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
         {
-            //Bolis.AddBlock(new Block(DateTime.Now, null, "{" + String.Format("sender:{0},receiver:{1},amount:{2:i}", User, txtEmpfaenger.Text, txtBetrag.Text) + "}"));
-            p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"));");
+            if(MessageBox.Show($"Willst du Wirklich {txtBetrag.Text} Bolis an {txtEmpfaenger.Text} senden?", "Wirklich Senden?",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){
+                p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"));");
+                txtBetrag.Text = "";
+                txtEmpfaenger.Text = "";
+            }
         }
 
         private void btnTestName_Click(object sender, EventArgs e) //Fragt Kontostandfunktion auf
