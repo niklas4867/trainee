@@ -62,7 +62,7 @@ namespace MasterNode
             block.Hash = block.CalculateHash();
             Chain.Add(block);
 #if DEBUG
-            Debug.WriteLine(Convert.ToString(GetLatestBlock().Index) + " " + Convert.ToString(GetLatestBlock().Data) + " " + Convert.ToString(GetLatestBlock().Hash));
+            Console.WriteLine(Convert.ToString(GetLatestBlock().Index) + " " + Convert.ToString(GetLatestBlock().Data) + " " + Convert.ToString(GetLatestBlock().Hash));
 #endif
         }
 
@@ -85,22 +85,37 @@ namespace MasterNode
             }
             return true;
         }
-        public int GetMoney(string Name) //Fragt Kontostand ab -- Nicht Endlösung
+        public string GetMoney(string Name) //Fragt Kontostand ab
         {
-            int x = 0;
+            int x = 1000;
             for (int i = 1; i < Chain.Count; i++)
             {
                 string[] a = Chain[i].Data.Split(new[] { "{sender:", ",receiver:", ",amount:", "}" }, StringSplitOptions.RemoveEmptyEntries);
-                if (a[0] == Name)
+                if (a[0] == $"\"{Name}\"" || a[0] == Name)
                 {
+                   
                     x = x - Convert.ToInt32(a[2]);
                 }
-                if (a[1] == Name)
+                if (a[1] == $"\"{Name}\"" || a[1] == Name)
                 {
                     x = x + Convert.ToInt32(a[2]);
                 }
             }
-            return x;
+            return $"SetMon{Name}{x}";
+        }
+        public string GetTransaktions(string Name)
+        {
+            string x = "";
+            for (int i = 1; i < Chain.Count; i++)
+            {
+                string[] a = Chain[i].Data.Split(new[] { "{sender:", ",receiver:", ",amount:", "}" }, StringSplitOptions.RemoveEmptyEntries);
+                if (a[0] == $"\"{Name}\"" || a[1] == $"\"{Name}\"" || a[0] == Name || a[1] == Name)
+                {
+                    x = x + $"{Convert.ToString(Chain[i].TimeStamp).Substring(0, Convert.ToString(Chain[i].TimeStamp).Length - 9)}   {Convert.ToString(Chain[i].TimeStamp).Substring(Convert.ToString(Chain[i].TimeStamp).Length - 9)}     {a[2]} Bolis      { a[0].Substring(1, a[0].Length - 2)}     { a[1].Substring(1, a[1].Length - 2)}\n";
+                }
+            }
+            return $"SetTra{Name}{x}";
+
         }
     }
 }

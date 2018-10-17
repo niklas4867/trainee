@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Text;
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
-using System.CodeDom.Compiler;
-using Microsoft.CSharp;
-using System.Reflection;
 using System.Collections.Generic;
-using System.IO;
 using System.Security.Cryptography;
 using System.Linq;
+using System.Reflection;
+using System.IO;
+using System.CodeDom.Compiler;
+using Microsoft.CSharp;
+using System.Threading;
 using System.Diagnostics;
 
 namespace MasterNode
@@ -17,93 +15,37 @@ namespace MasterNode
     public static class Program
     {
         static public Blockchain Bolis = new Blockchain();
-
-        delegate void AddMessage(string message);
-        static Random rnd = new Random();
-        const int port = 54545;
-        const string broadcastAddress = "255.255.255.255";
-        static public int lastNumber;
-        static public int lastNumber2;
-        static UdpClient receivingClient;
-        static UdpClient sendingClient;
-
         static List<int> numbers = new List<int>();
-        static public int dif = 2;
-
-        static Thread receivingThread;
+        static public int dif = 3;
+        static int sek = 0;
+        static public string returnCode = "";
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
+        static P2P p2p = new P2P("192.168.81.255"); //P2P
+        static P2P p2pm = new P2P("192.168.81.255", 54544); //P2P
+
 
 
         static void Main(string[] args)
         {
-            parameters.GenerateInMemory = true; //Code zu Maschinencode
-            parameters.GenerateExecutable = true;
 
-            InitializeSender();
-            InitializeReceiver();
+            ThreadStart getdif = new ThreadStart(SetDif); //Erstelle neuen Thread (GETDIF)
+            Thread dif = new Thread(getdif);
+            dif.Start();
 
             Console.ReadKey();
-
         }
 
-        static private void InitializeSender()
-
+        static public string RealtimeCompiler(string Command) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
         {
-            sendingClient = new UdpClient(broadcastAddress, port);
-            sendingClient.EnableBroadcast = true;
-        }
-
-        static private void InitializeReceiver()
-        {
-            receivingClient = new UdpClient(port);
-
-            ThreadStart start = new ThreadStart(Receiver);
-            receivingThread = new Thread(start);
-            receivingThread.IsBackground = true;
-            receivingThread.Start();
-        }
-
-
-        static private void Receiver()
-        {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
-            AddMessage messageDelegate = MessageReceived;
-
-            while (true)
+            if(Command.Substring(Command.Length-1) != ";")
             {
-                byte[] data = receivingClient.Receive(ref endPoint);
-                string message = Encoding.ASCII.GetString(data);
-                messageDelegate(message);
+                Command = "MasterNode.Program.returnCode = Convert.ToString(" + Command + ");";
             }
-        }
-
-        static private void MessageReceived(string message)
-        {
-            string x = message.Substring(message.Length - 4);
-            if(x == Convert.ToString(lastNumber) || x == Convert.ToString(lastNumber2)) { return; }
-            message = message.Substring(0, message.Length - 4);
-#if DEBUG
-            Console.WriteLine(message);
-#endif
-            ResponseMessage(message);
             
-        }
-
-        static void Send(string toSend)
-        {
-            lastNumber2 = lastNumber;
-            lastNumber = rnd.Next(1000, 9999);
-            toSend = toSend + Convert.ToString(lastNumber);
-            byte[] data = Encoding.ASCII.GetBytes(toSend);
-            sendingClient.Send(data, data.Length);
-        }
-
-        static public void ResponseMessage(string message) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
-        {
-
             string code = @"
+    using MasterNode;
     using System;
 
     namespace First
@@ -112,15 +54,18 @@ namespace MasterNode
         {
             public static void Main()
             {
-            " +
-                message
-                + @"
+                "+Command+@"  
+                        
             }
         }
     }
 ";
+            //Debug.WriteLine(code);
+            parameters.GenerateInMemory = true; //Code zu Maschinencode
+            parameters.GenerateExecutable = true;
             string exePath = Assembly.GetExecutingAssembly().Location;
             string exeDir = Path.GetDirectoryName(exePath);
+        
 
             AssemblyName[] assemRefs = Assembly.GetExecutingAssembly().GetReferencedAssemblies();
             List<string> references = new List<string>();
@@ -153,32 +98,42 @@ namespace MasterNode
                     Console.WriteLine(builder.ToString());
                 }
 #endif
+
                 Assembly assembly = results.CompiledAssembly;
                 Type program = assembly.GetType("First.Program");
                 MethodInfo main = program.GetMethod("Main");
                 main.Invoke(null, null);
             }
-            catch {
+            catch
+            {
 #if DEBUG
                 Console.WriteLine("Error");
 #endif
             }
+            return returnCode;
 
         }
 
-        static public void CheckNr(int Nr,string wallet)
+
+        static public void CheckNr(int Nr, string wallet)
         {
             SHA256 sha256 = SHA256.Create();
             string Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(Nr))));
 #if DEBUG
-            //Console.WriteLine($"{Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))}, {numbers.IndexOf(Nr) == -1}, {0 <= Nr}, {Nr <= 999999999}");
+            Console.WriteLine(Hash.Substring(0, dif));
+            Console.WriteLine($"{Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))}, {numbers.IndexOf(Nr) == -1}, {0 <= Nr}, {Nr <= 999999999}");
 #endif
 
             if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif)) && numbers.IndexOf(Nr) == -1 && 0 <= Nr && Nr <= 999999999)
             {
                 numbers.Add(Nr);
-                Console.WriteLine($"Block wurde von {wallet} abgebaut");
+                Console.WriteLine($"Block wurde von {wallet} nach {MasterNode.Program.sek} Sekunden abgebaut");
                 Bolis.AddBlock(new Block(DateTime.Now, null, $"{{sender:\"MasterNode\",receiver:{wallet},amount:1}}"));
+                if(MasterNode.Program.sek > 60 && dif > 2) { MasterNode.Program.dif--; }
+                else if (MasterNode.Program.sek < 60) { MasterNode.Program.dif++; }
+                else { MasterNode.Program.sek = 0; return; }
+                Console.WriteLine($"Neue Schwierigkeit: {MasterNode.Program.dif}");
+                MasterNode.Program.sek = 0;
             }
             else
             {
@@ -187,5 +142,23 @@ namespace MasterNode
         }
 
 
+
+        static public void ResponseMessage(string message)
+        {
+            string x = RealtimeCompiler(message);
+            if(x != "") { p2p.Send(x); }
+            
+        }
+
+        static public void SetDif()
+        {
+            while (true)
+            {
+                p2pm.Send("SetDif" + dif);
+                Thread.Sleep(9990);
+                sek = sek + 10;
+                if (sek >= 80 && dif > 2) { dif--; sek = 0; Console.WriteLine($"Neue Schwieriegkeit: {dif}"); }
+            }
+        }
     }
 }

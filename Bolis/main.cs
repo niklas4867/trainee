@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Bolis
 {
     public partial class main : Form
     {
-        public Blockchain Bolis = new Blockchain(); // ----------- Die Klassen wurden zu "Classes.cs" verschoben ------------ //
+        public const string User = "Luca";
+        P2P p2p = new P2P("192.168.81.255");
+        static public string x;
+        static public string y;
 
         public main()
         {
@@ -14,25 +20,19 @@ namespace Bolis
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
         {
-            Bolis.AddBlock(new Block(DateTime.Now, null, "{" + String.Format("sender:{0},receiver:{1},amount:{2:i}", txtSender.Text, txtEmpfaenger.Text, txtBetrag.Text) + "}"));
-
-        }
-
-        private void btnCheck_Click(object sender, EventArgs e) //Ruft die Überprüffunktion auf
-        {
-            if (Bolis.IsValid())
-            {
-                MessageBox.Show("Die Blockchain ist Valid");
-            }
-            else
-            {
-                MessageBox.Show("Achtung! Die Blockchain ist Invalid");
+            if(MessageBox.Show($"Willst du Wirklich {txtBetrag.Text} Bolis an {txtEmpfaenger.Text} senden?", "Wirklich Senden?",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){
+                p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"));");
+                txtBetrag.Text = "";
+                txtEmpfaenger.Text = "";
             }
         }
 
         private void btnTestName_Click(object sender, EventArgs e) //Fragt Kontostandfunktion auf
         {
-            MessageBox.Show($"Der Kontostand von {txtName.Text} beträgt: {Bolis.GetMoney(txtName.Text)} Bolis");
+            //MessageBox.Show($"Der Kontostand von {User} beträgt: {Bolis.GetMoney(User)} Bolis");
+            p2p.Send($"MasterNode.Program.Bolis.GetMoney(\"{User}\")");
+            Thread.Sleep(100);
+            txtKontostand.Text = x;
         }
 
         private void txtBetrag_Click(object sender, EventArgs e)
@@ -40,12 +40,125 @@ namespace Bolis
             txtBetrag.Text = "";
         }
 
-        private void txtName_KeyDown(object sender, KeyEventArgs e)
+        private void btnKontostand_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            ResetTxt();
+            btnTestName_Click(sender, e);
+            panelUeberweisungen.Visible = false;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = false;
+            btnKontostand.BackColor = Color.FromArgb(60, 60, 60);
+            btnueberweisen.BackColor = Color.FromArgb(45,45,48);
+            btnTransaktionen.BackColor = Color.FromArgb(45,45,48);
+
+            btnTestName_Click(sender, e);
+        }
+
+        private void btnUeberweisen_Click(object sender, EventArgs e)
+        {
+            ResetTxt();
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = false;
+            btnueberweisen.BackColor = Color.FromArgb(60,60,60);
+            btnTransaktionen.BackColor = Color.FromArgb(45, 45, 48);
+            btnKontostand.BackColor = Color.FromArgb(45, 45, 48);
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            txtEmpfaenger.Text = "";
+            txtBetrag.Text = "";
+
+        }
+
+        private void btnueberweisen_MouseHover(object sender, EventArgs e)
+        {
+            btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
+        }
+
+        private void btnueberweisen_MouseLeave(object sender, EventArgs e)
+        {
+            btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
+        }
+
+        private void btntransaktionen_Click(object sender, EventArgs e)
+        {
+            ResetTxt();
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = true;
+            btnTransaktionen.BackColor = Color.FromArgb(60, 60, 60);
+            btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
+            btnKontostand.BackColor = Color.FromArgb(45, 45, 48);
+
+            btnTransAkt_Click(sender, e);
+        }
+
+        private void btnTransAkt_Click(object sender, EventArgs e)
+        {
+            //txtTransaktionen.Text = Bolis.GetTransaktions(User);
+            p2p.Send($"MasterNode.Program.Bolis.GetTransaktions(\"{User}\")");
+
+            Thread.Sleep(100);
+            txtTransaktionen.Text = y;
+        }
+
+        static public void ResponseMessage(string message)
+        {
+            if (message.Substring(0, $"SetMon{User}".Length) == $"SetMon{User}")
             {
-                MessageBox.Show($"Der Kontostand von {txtName.Text} beträgt: {Bolis.GetMoney(txtName.Text)} Bolis");
+                x = $"{message.Substring($"SetMon{User}".Length)} Bolis";
             }
+            else if (message.Substring(0, $"SetTra{User}".Length) == $"SetTra{User}")
+            {
+                y = message.Substring($"SetTra{User}".Length);
+            }
+        }
+
+        private void main_Activated(object sender, EventArgs e)
+        {
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = false;
+            btnueberweisen.BackColor = Color.FromArgb(60, 60, 60);
+            txtUsername.Text = User;
+        }
+
+        private void txtEmpfaenger_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtBetrag_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void ResetTxt()
+        {
+            txtKontostand.Text = "";
+            txtBetrag.Text = "";
+            txtEmpfaenger.Text = "";
+            txtTransaktionen.Text = "";
+            x = "";
+            y = "";
+        }
+
+        private void btn2_Click_1(object sender, EventArgs e)
+        {
+            ResetTxt();
+        }
+
+        private void ChangeTxT()
+        {
+            txtKontostand.Text = x;
+            txtTransaktionen.Text = y;
+            Thread.Sleep(500);
         }
     }
 }
