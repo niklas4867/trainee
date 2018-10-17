@@ -20,11 +20,9 @@ namespace Bolis
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
         {
-            if(MessageBox.Show($"Willst du Wirklich {txtBetrag.Text} Bolis an {txtEmpfaenger.Text} senden?", "Wirklich Senden?",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){
-                p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"));");
-                txtBetrag.Text = "";
-                txtEmpfaenger.Text = "";
-            }
+            p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"));");
+            txtBetrag.Text = "";
+            txtEmpfaenger.Text = "";
         }
 
         private void txtBetrag_Click(object sender, EventArgs e)
