@@ -23,21 +23,13 @@ namespace MasterNode
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode
         static CompilerParameters parameters = new CompilerParameters();
         static P2P p2p = new P2P("192.168.81.255"); //P2P
-        static P2P p2pm = new P2P("192.168.81.255", 54544); //P2P
-
-
 
         static void Main(string[] args)
         {
-
-            ThreadStart getdif = new ThreadStart(SetDif); //Erstelle neuen Thread (GETDIF)
-            Thread dif = new Thread(getdif);
-            dif.Start();
-
             Console.ReadKey();
         }
 
-        static public string RealtimeCompiler(string Command) //Kompiliert Befehl zu Maschienen Code -- Macht keine änderungen!
+        static public string RealtimeCompiler(string Command) //Kompiliert Befehl zu Maschienen Code
         {
             if(Command.Substring(Command.Length-1) != ";")
             {
@@ -60,7 +52,6 @@ namespace MasterNode
         }
     }
 ";
-            //Debug.WriteLine(code);
             parameters.GenerateInMemory = true; //Code zu Maschinencode
             parameters.GenerateExecutable = true;
             string exePath = Assembly.GetExecutingAssembly().Location;
@@ -114,51 +105,11 @@ namespace MasterNode
 
         }
 
-
-        static public void CheckNr(int Nr, string wallet)
-        {
-            SHA256 sha256 = SHA256.Create();
-            string Hash = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(Convert.ToString(Nr))));
-#if DEBUG
-            Console.WriteLine(Hash.Substring(0, dif));
-            Console.WriteLine($"{Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif))}, {numbers.IndexOf(Nr) == -1}, {0 <= Nr}, {Nr <= 999999999}");
-#endif
-
-            if (Hash.Substring(0, dif) == String.Concat(Enumerable.Repeat("0", dif)) && numbers.IndexOf(Nr) == -1 && 0 <= Nr && Nr <= 999999999)
-            {
-                numbers.Add(Nr);
-                Console.WriteLine($"Block wurde von {wallet} nach {MasterNode.Program.sek} Sekunden abgebaut");
-                Bolis.AddBlock(new Block(DateTime.Now, null, $"{{sender:\"MasterNode\",receiver:{wallet},amount:1}}"));
-                if(MasterNode.Program.sek > 60 && dif > 2) { MasterNode.Program.dif--; }
-                else if (MasterNode.Program.sek < 60) { MasterNode.Program.dif++; }
-                else { MasterNode.Program.sek = 0; return; }
-                Console.WriteLine($"Neue Schwierigkeit: {MasterNode.Program.dif}");
-                MasterNode.Program.sek = 0;
-            }
-            else
-            {
-                Console.WriteLine($"Block von {wallet} fehlgeschlagen");
-            }
-        }
-
-
-
         static public void ResponseMessage(string message)
         {
             string x = RealtimeCompiler(message);
             if(x != "") { p2p.Send(x); }
             
-        }
-
-        static public void SetDif()
-        {
-            while (true)
-            {
-                p2pm.Send("SetDif" + dif);
-                Thread.Sleep(9990);
-                sek = sek + 10;
-                if (sek >= 80 && dif > 2) { dif--; sek = 0; Console.WriteLine($"Neue Schwieriegkeit: {dif}"); }
-            }
         }
     }
 }

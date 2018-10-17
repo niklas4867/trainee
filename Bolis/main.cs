@@ -27,31 +27,9 @@ namespace Bolis
             }
         }
 
-        private void btnTestName_Click(object sender, EventArgs e) //Fragt Kontostandfunktion auf
-        {
-            //MessageBox.Show($"Der Kontostand von {User} beträgt: {Bolis.GetMoney(User)} Bolis");
-            p2p.Send($"MasterNode.Program.Bolis.GetMoney(\"{User}\")");
-            Thread.Sleep(100);
-            txtKontostand.Text = x;
-        }
-
         private void txtBetrag_Click(object sender, EventArgs e)
         {
             txtBetrag.Text = "";
-        }
-
-        private void btnKontostand_Click(object sender, EventArgs e)
-        {
-            ResetTxt();
-            btnTestName_Click(sender, e);
-            panelUeberweisungen.Visible = false;
-            panelKontostand.Visible = true;
-            panelTransaktion.Visible = false;
-            btnKontostand.BackColor = Color.FromArgb(60, 60, 60);
-            btnueberweisen.BackColor = Color.FromArgb(45,45,48);
-            btnTransaktionen.BackColor = Color.FromArgb(45,45,48);
-
-            btnTestName_Click(sender, e);
         }
 
         private void btnUeberweisen_Click(object sender, EventArgs e)
@@ -62,7 +40,6 @@ namespace Bolis
             panelTransaktion.Visible = false;
             btnueberweisen.BackColor = Color.FromArgb(60,60,60);
             btnTransaktionen.BackColor = Color.FromArgb(45, 45, 48);
-            btnKontostand.BackColor = Color.FromArgb(45, 45, 48);
         }
 
         private void btn2_Click(object sender, EventArgs e)
@@ -90,7 +67,6 @@ namespace Bolis
             panelTransaktion.Visible = true;
             btnTransaktionen.BackColor = Color.FromArgb(60, 60, 60);
             btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
-            btnKontostand.BackColor = Color.FromArgb(45, 45, 48);
 
             btnTransAkt_Click(sender, e);
         }
@@ -106,11 +82,7 @@ namespace Bolis
 
         static public void ResponseMessage(string message)
         {
-            if (message.Substring(0, $"SetMon{User}".Length) == $"SetMon{User}")
-            {
-                x = $"{message.Substring($"SetMon{User}".Length)} Bolis";
-            }
-            else if (message.Substring(0, $"SetTra{User}".Length) == $"SetTra{User}")
+            if (message.Substring(0, $"SetTra{User}".Length) == $"SetTra{User}")
             {
                 y = message.Substring($"SetTra{User}".Length);
             }
@@ -128,15 +100,6 @@ namespace Bolis
         private void txtEmpfaenger_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-        }
-
-        private void txtBetrag_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
         }
 
         private void ResetTxt()

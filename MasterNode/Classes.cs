@@ -23,7 +23,7 @@ namespace MasterNode
             Hash = CalculateHash();
         }
 
-        public string CalculateHash() //Berechnung Hash -> Internet
+        public string CalculateHash() //Berechnung Hash
         {
             SHA256 sha256 = SHA256.Create();
 
@@ -85,24 +85,6 @@ namespace MasterNode
             }
             return true;
         }
-        public string GetMoney(string Name) //Fragt Kontostand ab
-        {
-            int x = 1000;
-            for (int i = 1; i < Chain.Count; i++)
-            {
-                string[] a = Chain[i].Data.Split(new[] { "{sender:", ",receiver:", ",amount:", "}" }, StringSplitOptions.RemoveEmptyEntries);
-                if (a[0] == $"\"{Name}\"" || a[0] == Name)
-                {
-                   
-                    x = x - Convert.ToInt32(a[2]);
-                }
-                if (a[1] == $"\"{Name}\"" || a[1] == Name)
-                {
-                    x = x + Convert.ToInt32(a[2]);
-                }
-            }
-            return $"SetMon{Name}{x}";
-        }
         public string GetTransaktions(string Name)
         {
             string x = "";
@@ -111,7 +93,7 @@ namespace MasterNode
                 string[] a = Chain[i].Data.Split(new[] { "{sender:", ",receiver:", ",amount:", "}" }, StringSplitOptions.RemoveEmptyEntries);
                 if (a[0] == $"\"{Name}\"" || a[1] == $"\"{Name}\"" || a[0] == Name || a[1] == Name)
                 {
-                    x = x + $"{Convert.ToString(Chain[i].TimeStamp).Substring(0, Convert.ToString(Chain[i].TimeStamp).Length - 9)}   {Convert.ToString(Chain[i].TimeStamp).Substring(Convert.ToString(Chain[i].TimeStamp).Length - 9)}     {a[2]} Bolis      { a[0].Substring(1, a[0].Length - 2)}     { a[1].Substring(1, a[1].Length - 2)}\n";
+                    x = x + $"{Convert.ToString(Chain[i].TimeStamp).Substring(0, Convert.ToString(Chain[i].TimeStamp).Length - 9)}   {Convert.ToString(Chain[i].TimeStamp).Substring(Convert.ToString(Chain[i].TimeStamp).Length - 9)}     {a[2]}      { a[0].Substring(1, a[0].Length - 2)}     { a[1].Substring(1, a[1].Length - 2)}\n";
                 }
             }
             return $"SetTra{Name}{x}";
