@@ -8,7 +8,8 @@ namespace Bolis
 {
     public partial class main : Form
     {
-        public const string User = "Luca";
+        public const string User = "User1";
+        public const string OtherUser = "User2";
         P2P p2p = new P2P("192.168.81.255");
         static public string x;
         static public string y;
@@ -20,7 +21,7 @@ namespace Bolis
 
         private void btn1_Click(object sender, EventArgs e) //Fügt Block zu "Bolis" hinzu 
         {
-            p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{txtEmpfaenger.Text}\\\",amount:{txtBetrag.Text}}}\"));");
+            p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{OtherUser}\\\",amount:{txtBetrag.Text}}}\"));");
             txtBetrag.Text = "";
             txtEmpfaenger.Text = "";
         }
