@@ -324,6 +324,10 @@
   <ItemGroup>
     <Content Include="bolis.ico" />
     <Content Include="Logo %281%29.ico" />
+    <None Include="Resources\ganzklein.png" />
+    <None Include="Resources\KleineEdit.png" />
+    <None Include="Resources\20034408_email-clipart_4558bd49_m1.png" />
+    <None Include="Resources\20034408_email-clipart_4558bd49_m.png" />
     <None Include="Resources\empfänger.png" />
     <None Include="Resources\sender3.png" />
     <None Include="Resources\betrag2.png" />

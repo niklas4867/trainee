@@ -63,6 +63,26 @@ namespace Bolis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _20034408_email_clipart_4558bd49_m {
+            get {
+                object obj = ResourceManager.GetObject("20034408_email-clipart_4558bd49_m", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _20034408_email_clipart_4558bd49_m1 {
+            get {
+                object obj = ResourceManager.GetObject("20034408_email-clipart_4558bd49_m1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aktualisieren {
             get {
                 object obj = ResourceManager.GetObject("aktualisieren", resourceCulture);
@@ -296,6 +316,26 @@ namespace Bolis.Properties {
         internal static System.Drawing.Bitmap empfänger {
             get {
                 object obj = ResourceManager.GetObject("empfänger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ganzklein {
+            get {
+                object obj = ResourceManager.GetObject("ganzklein", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KleineEdit {
+            get {
+                object obj = ResourceManager.GetObject("KleineEdit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

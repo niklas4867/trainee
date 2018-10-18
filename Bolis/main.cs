@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -23,7 +25,6 @@ namespace Bolis
         {
             p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{OtherUser}\\\",amount:{txtBetrag.Text}}}\"));");
             txtBetrag.Text = "";
-            txtEmpfaenger.Text = "";
         }
 
         private void txtBetrag_Click(object sender, EventArgs e)
@@ -31,19 +32,8 @@ namespace Bolis
             txtBetrag.Text = "";
         }
 
-        private void btnUeberweisen_Click(object sender, EventArgs e)
-        {
-            ResetTxt();
-            panelUeberweisungen.Visible = true;
-            panelKontostand.Visible = true;
-            panelTransaktion.Visible = false;
-            btnueberweisen.BackColor = Color.FromArgb(60,60,60);
-            btnTransaktionen.BackColor = Color.FromArgb(45, 45, 48);
-        }
-
         private void btn2_Click(object sender, EventArgs e)
         {
-            txtEmpfaenger.Text = "";
             txtBetrag.Text = "";
 
         }
@@ -56,18 +46,6 @@ namespace Bolis
         private void btnueberweisen_MouseLeave(object sender, EventArgs e)
         {
             btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
-        }
-
-        private void btntransaktionen_Click(object sender, EventArgs e)
-        {
-            ResetTxt();
-            panelUeberweisungen.Visible = true;
-            panelKontostand.Visible = true;
-            panelTransaktion.Visible = true;
-            btnTransaktionen.BackColor = Color.FromArgb(60, 60, 60);
-            btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
-
-            btnTransAkt_Click(sender, e);
         }
 
         private void btnTransAkt_Click(object sender, EventArgs e)
@@ -93,7 +71,6 @@ namespace Bolis
             panelKontostand.Visible = true;
             panelTransaktion.Visible = false;
             btnueberweisen.BackColor = Color.FromArgb(60, 60, 60);
-            txtUsername.Text = User;
         }
 
         private void txtEmpfaenger_KeyPress(object sender, KeyPressEventArgs e)
@@ -105,7 +82,6 @@ namespace Bolis
         {
             txtKontostand.Text = "";
             txtBetrag.Text = "";
-            txtEmpfaenger.Text = "";
             txtTransaktionen.Text = "";
             x = "";
             y = "";
@@ -121,6 +97,87 @@ namespace Bolis
             txtKontostand.Text = x;
             txtTransaktionen.Text = y;
             Thread.Sleep(500);
+        }
+
+        private void btnueberweisen_Click_1(object sender, EventArgs e)
+        {
+            ResetTxt();
+            btnTransaktionen.ForeColor = Color.White;
+            btnueberweisen.ForeColor = Color.Lime;
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = false;
+            txtBetrag.Visible = true;
+            label2.Visible = true;
+            btnueberweisen.BackColor = Color.FromArgb(60, 60, 60);
+            btnTransaktionen.BackColor = Color.FromArgb(45, 45, 48);
+        }
+
+        private void btnTransaktionen_Click_1(object sender, EventArgs e)
+        {
+            ResetTxt();
+            btnueberweisen.ForeColor = Color.White;
+            btnTransaktionen.ForeColor = Color.Lime;
+            panelUeberweisungen.Visible = true;
+            panelKontostand.Visible = true;
+            panelTransaktion.Visible = true;
+            txtBetrag.Visible = false;
+            label2.Visible = false;
+            btnTransaktionen.BackColor = Color.FromArgb(60, 60, 60);
+            btnueberweisen.BackColor = Color.FromArgb(45, 45, 48);
+
+            btnTransAkt_Click(sender, e);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnsnd_Click_1(object sender, EventArgs e)
+        {
+           
+           if (textBox2.Text.Contains("@")&& checkBox1.Checked)
+            {
+                using (StreamWriter outputFile = File.AppendText("Mail.txt"))
+                {
+                    outputFile.WriteLine(textBox2.Text);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelTransaktion_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
