@@ -179,5 +179,10 @@ namespace Bolis
         {
             
         }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

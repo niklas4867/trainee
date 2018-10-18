@@ -143,59 +143,59 @@
             // 
             this.pictureBox6.Location = new System.Drawing.Point(3, 3);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(239, 50);
+            this.pictureBox6.Size = new System.Drawing.Size(108, 50);
             this.pictureBox6.TabIndex = 3;
             this.pictureBox6.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Window;
-            this.label6.Location = new System.Drawing.Point(248, 0);
+            this.label6.Location = new System.Drawing.Point(117, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 39);
+            this.label6.Size = new System.Drawing.Size(216, 39);
             this.label6.TabIndex = 4;
             this.label6.Text = "TIMESTAMP      ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Window;
-            this.label7.Location = new System.Drawing.Point(419, 0);
+            this.label7.Location = new System.Drawing.Point(339, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(195, 39);
+            this.label7.Size = new System.Drawing.Size(254, 39);
             this.label7.TabIndex = 5;
             this.label7.Text = "NACHRICHT             ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Window;
-            this.label8.Location = new System.Drawing.Point(620, 0);
+            this.label8.Location = new System.Drawing.Point(599, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(208, 39);
+            this.label8.Size = new System.Drawing.Size(287, 39);
             this.label8.TabIndex = 6;
             this.label8.Text = "PREVIOUS HASH      ";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Window;
-            this.label9.Location = new System.Drawing.Point(834, 0);
+            this.label9.Location = new System.Drawing.Point(892, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 39);
+            this.label9.Size = new System.Drawing.Size(246, 39);
             this.label9.TabIndex = 7;
             this.label9.Text = "CURRENT HASH";
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(1009, 3);
+            this.pictureBox11.Location = new System.Drawing.Point(1144, 3);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(239, 50);
+            this.pictureBox11.Size = new System.Drawing.Size(102, 50);
             this.pictureBox11.TabIndex = 3;
             this.pictureBox11.TabStop = false;
             // 
@@ -203,7 +203,7 @@
             // 
             this.pictureBox12.Location = new System.Drawing.Point(3, 59);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(239, 50);
+            this.pictureBox12.Size = new System.Drawing.Size(108, 50);
             this.pictureBox12.TabIndex = 3;
             this.pictureBox12.TabStop = false;
             // 
@@ -211,13 +211,13 @@
             // 
             this.txtTransaktionen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.txtTransaktionen.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTransaktionen.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTransaktionen.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTransaktionen.ForeColor = System.Drawing.Color.White;
             this.txtTransaktionen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtTransaktionen.Location = new System.Drawing.Point(248, 59);
+            this.txtTransaktionen.Location = new System.Drawing.Point(117, 59);
             this.txtTransaktionen.Name = "txtTransaktionen";
             this.txtTransaktionen.ReadOnly = true;
-            this.txtTransaktionen.Size = new System.Drawing.Size(755, 228);
+            this.txtTransaktionen.Size = new System.Drawing.Size(1021, 228);
             this.txtTransaktionen.TabIndex = 1;
             this.txtTransaktionen.TabStop = false;
             this.txtTransaktionen.Text = "";
@@ -229,7 +229,7 @@
             this.btnTransAkt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnTransAkt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransAkt.Image = ((System.Drawing.Image)(resources.GetObject("btnTransAkt.Image")));
-            this.btnTransAkt.Location = new System.Drawing.Point(1009, 59);
+            this.btnTransAkt.Location = new System.Drawing.Point(1144, 59);
             this.btnTransAkt.Name = "btnTransAkt";
             this.btnTransAkt.Size = new System.Drawing.Size(43, 43);
             this.btnTransAkt.TabIndex = 1;
@@ -266,7 +266,7 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
             this.textBox2.Location = new System.Drawing.Point(644, 300);
             this.textBox2.Name = "textBox2";
@@ -286,7 +286,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.Window;
             this.button2.Location = new System.Drawing.Point(1110, 300);
             this.button2.Name = "button2";
@@ -307,11 +307,11 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.SystemColors.Window;
             this.checkBox1.Location = new System.Drawing.Point(597, 339);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(350, 23);
+            this.checkBox1.Size = new System.Drawing.Size(474, 23);
             this.checkBox1.TabIndex = 129;
             this.checkBox1.Text = "Ich stimme den Datenschutzbedingungen der io-market AG zu.";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -319,7 +319,7 @@
             // txtBetrag
             // 
             this.txtBetrag.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtBetrag.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBetrag.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBetrag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtBetrag.Location = new System.Drawing.Point(344, 312);
             this.txtBetrag.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
@@ -346,11 +346,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Window;
             this.label2.Location = new System.Drawing.Point(337, 264);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 39);
+            this.label2.Size = new System.Drawing.Size(156, 39);
             this.label2.TabIndex = 123;
             this.label2.Text = "Nachricht";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -415,11 +415,11 @@
             this.btnueberweisen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnueberweisen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnueberweisen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnueberweisen.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnueberweisen.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnueberweisen.ForeColor = System.Drawing.Color.Lime;
-            this.btnueberweisen.Location = new System.Drawing.Point(356, 167);
+            this.btnueberweisen.Location = new System.Drawing.Point(259, 167);
             this.btnueberweisen.Name = "btnueberweisen";
-            this.btnueberweisen.Size = new System.Drawing.Size(232, 45);
+            this.btnueberweisen.Size = new System.Drawing.Size(332, 45);
             this.btnueberweisen.TabIndex = 122;
             this.btnueberweisen.Text = "DEIN NEUER BLOCK";
             this.btnueberweisen.UseVisualStyleBackColor = false;
@@ -430,11 +430,11 @@
             this.btnTransaktionen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnTransaktionen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnTransaktionen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransaktionen.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransaktionen.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransaktionen.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnTransaktionen.Location = new System.Drawing.Point(752, 167);
+            this.btnTransaktionen.Location = new System.Drawing.Point(798, 167);
             this.btnTransaktionen.Name = "btnTransaktionen";
-            this.btnTransaktionen.Size = new System.Drawing.Size(195, 45);
+            this.btnTransaktionen.Size = new System.Drawing.Size(239, 45);
             this.btnTransaktionen.TabIndex = 123;
             this.btnTransaktionen.Text = "BLOCKCHAIN";
             this.btnTransaktionen.UseVisualStyleBackColor = false;
@@ -443,11 +443,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(328, 67);
+            this.label3.Location = new System.Drawing.Point(222, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(260, 77);
+            this.label3.Size = new System.Drawing.Size(369, 77);
             this.label3.TabIndex = 124;
             this.label3.Text = "DIGITALTAG";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -455,11 +455,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(672, 67);
+            this.label4.Location = new System.Drawing.Point(685, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(289, 77);
+            this.label4.Size = new System.Drawing.Size(419, 77);
             this.label4.TabIndex = 125;
             this.label4.Text = "BLOCKCHAIN";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -467,11 +467,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Window;
-            this.label5.Location = new System.Drawing.Point(595, 91);
+            this.label5.Location = new System.Drawing.Point(590, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 39);
+            this.label5.Size = new System.Drawing.Size(98, 39);
             this.label5.TabIndex = 126;
             this.label5.Text = "GOES";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -479,21 +479,21 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.Window;
             this.label10.Location = new System.Drawing.Point(12, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(318, 39);
+            this.label10.Size = new System.Drawing.Size(417, 39);
             this.label10.TabIndex = 127;
             this.label10.Text = "Digitaltag Liechtenstein 2018";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(271, 151);
+            this.pictureBox3.Location = new System.Drawing.Point(170, 142);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(720, 1);
+            this.pictureBox3.Size = new System.Drawing.Size(980, 1);
             this.pictureBox3.TabIndex = 107;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -503,7 +503,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 682);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
@@ -525,6 +525,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bolis";
             this.Activated += new System.EventHandler(this.main_Activated);
+            this.Load += new System.EventHandler(this.main_Load);
             this.panelUeberweisungen.ResumeLayout(false);
             this.panelUeberweisungen.PerformLayout();
             this.panelTransaktion.ResumeLayout(false);
