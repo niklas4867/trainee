@@ -32,20 +32,32 @@
             this.btnCheck = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelUeberweisungen = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelTransaktion = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.txtTransaktionen = new System.Windows.Forms.RichTextBox();
+            this.btnTransAkt = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtBetrag = new System.Windows.Forms.TextBox();
+            this.btn1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelKontostand = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnTestName = new System.Windows.Forms.Button();
             this.txtKontostand = new System.Windows.Forms.TextBox();
             this.btnueberweisen = new System.Windows.Forms.Button();
             this.btnTransaktionen = new System.Windows.Forms.Button();
@@ -54,22 +66,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.btnTransAkt = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btn1 = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnTestName = new System.Windows.Forms.Button();
             this.panelUeberweisungen.SuspendLayout();
             this.panelTransaktion.SuspendLayout();
-            this.panelKontostand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -78,7 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panelKontostand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCheck
@@ -102,18 +102,6 @@
             this.panelUeberweisungen.Size = new System.Drawing.Size(1260, 742);
             this.panelUeberweisungen.TabIndex = 108;
             this.panelUeberweisungen.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(337, 264);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 39);
-            this.label2.TabIndex = 123;
-            this.label2.Text = "Nachricht";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
@@ -150,6 +138,14 @@
             this.panelTransaktion.TabIndex = 120;
             this.panelTransaktion.Visible = false;
             this.panelTransaktion.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTransaktion_Paint);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(239, 50);
+            this.pictureBox6.TabIndex = 3;
+            this.pictureBox6.TabStop = false;
             // 
             // label6
             // 
@@ -195,6 +191,22 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "CURRENT HASH";
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Location = new System.Drawing.Point(1009, 3);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(239, 50);
+            this.pictureBox11.TabIndex = 3;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Location = new System.Drawing.Point(3, 59);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(239, 50);
+            this.pictureBox12.TabIndex = 3;
+            this.pictureBox12.TabStop = false;
+            // 
             // txtTransaktionen
             // 
             this.txtTransaktionen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -210,6 +222,47 @@
             this.txtTransaktionen.TabStop = false;
             this.txtTransaktionen.Text = "";
             // 
+            // btnTransAkt
+            // 
+            this.btnTransAkt.FlatAppearance.BorderSize = 0;
+            this.btnTransAkt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnTransAkt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnTransAkt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransAkt.Image = ((System.Drawing.Image)(resources.GetObject("btnTransAkt.Image")));
+            this.btnTransAkt.Location = new System.Drawing.Point(1009, 59);
+            this.btnTransAkt.Name = "btnTransAkt";
+            this.btnTransAkt.Size = new System.Drawing.Size(43, 43);
+            this.btnTransAkt.TabIndex = 1;
+            this.btnTransAkt.UseVisualStyleBackColor = true;
+            this.btnTransAkt.Click += new System.EventHandler(this.btnTransAkt_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 293);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1248, 1);
+            this.pictureBox2.TabIndex = 128;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 300);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(588, 31);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::Bolis.Properties.Resources.ganzklein;
+            this.pictureBox8.Location = new System.Drawing.Point(597, 300);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(41, 31);
+            this.pictureBox8.TabIndex = 133;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -219,6 +272,14 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(279, 33);
             this.textBox2.TabIndex = 130;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Location = new System.Drawing.Point(929, 300);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(175, 31);
+            this.pictureBox7.TabIndex = 132;
+            this.pictureBox7.TabStop = false;
             // 
             // button2
             // 
@@ -234,6 +295,14 @@
             this.button2.Text = "Senden";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.btnsnd_Click_1);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(3, 339);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(588, 20);
+            this.pictureBox4.TabIndex = 131;
+            this.pictureBox4.TabStop = false;
             // 
             // checkBox1
             // 
@@ -259,6 +328,33 @@
             this.txtBetrag.Size = new System.Drawing.Size(609, 189);
             this.txtBetrag.TabIndex = 2;
             // 
+            // btn1
+            // 
+            this.btn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn1.BackgroundImage")));
+            this.btn1.FlatAppearance.BorderSize = 0;
+            this.btn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn1.Location = new System.Drawing.Point(963, 458);
+            this.btn1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.btn1.Name = "btn1";
+            this.btn1.Size = new System.Drawing.Size(43, 43);
+            this.btn1.TabIndex = 3;
+            this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(337, 264);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 39);
+            this.label2.TabIndex = 123;
+            this.label2.Text = "Nachricht";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // panelKontostand
             // 
             this.panelKontostand.Controls.Add(this.panelUeberweisungen);
@@ -272,6 +368,15 @@
             this.panelKontostand.TabIndex = 109;
             this.panelKontostand.Visible = false;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(530, 83);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(182, 39);
+            this.pictureBox5.TabIndex = 4;
+            this.pictureBox5.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -280,6 +385,19 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 37);
             this.label1.TabIndex = 3;
+            // 
+            // btnTestName
+            // 
+            this.btnTestName.FlatAppearance.BorderSize = 0;
+            this.btnTestName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnTestName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnTestName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTestName.Image = ((System.Drawing.Image)(resources.GetObject("btnTestName.Image")));
+            this.btnTestName.Location = new System.Drawing.Point(723, 130);
+            this.btnTestName.Name = "btnTestName";
+            this.btnTestName.Size = new System.Drawing.Size(43, 43);
+            this.btnTestName.TabIndex = 1;
+            this.btnTestName.UseVisualStyleBackColor = true;
             // 
             // txtKontostand
             // 
@@ -380,124 +498,6 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(239, 50);
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Location = new System.Drawing.Point(1009, 3);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(239, 50);
-            this.pictureBox11.TabIndex = 3;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Location = new System.Drawing.Point(3, 59);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(239, 50);
-            this.pictureBox12.TabIndex = 3;
-            this.pictureBox12.TabStop = false;
-            // 
-            // btnTransAkt
-            // 
-            this.btnTransAkt.FlatAppearance.BorderSize = 0;
-            this.btnTransAkt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnTransAkt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnTransAkt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransAkt.Image = ((System.Drawing.Image)(resources.GetObject("btnTransAkt.Image")));
-            this.btnTransAkt.Location = new System.Drawing.Point(1009, 59);
-            this.btnTransAkt.Name = "btnTransAkt";
-            this.btnTransAkt.Size = new System.Drawing.Size(43, 43);
-            this.btnTransAkt.TabIndex = 1;
-            this.btnTransAkt.UseVisualStyleBackColor = true;
-            this.btnTransAkt.Click += new System.EventHandler(this.btnTransAkt_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 293);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1248, 1);
-            this.pictureBox2.TabIndex = 128;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 300);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(588, 31);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::Bolis.Properties.Resources.ganzklein;
-            this.pictureBox8.Location = new System.Drawing.Point(597, 300);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(41, 31);
-            this.pictureBox8.TabIndex = 133;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(929, 300);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(175, 31);
-            this.pictureBox7.TabIndex = 132;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(3, 339);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(588, 20);
-            this.pictureBox4.TabIndex = 131;
-            this.pictureBox4.TabStop = false;
-            // 
-            // btn1
-            // 
-            this.btn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn1.BackgroundImage")));
-            this.btn1.FlatAppearance.BorderSize = 0;
-            this.btn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
-            this.btn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn1.Location = new System.Drawing.Point(963, 458);
-            this.btn1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-            this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(43, 43);
-            this.btn1.TabIndex = 3;
-            this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(530, 83);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(182, 39);
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
-            // 
-            // btnTestName
-            // 
-            this.btnTestName.FlatAppearance.BorderSize = 0;
-            this.btnTestName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnTestName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnTestName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTestName.Image = ((System.Drawing.Image)(resources.GetObject("btnTestName.Image")));
-            this.btnTestName.Location = new System.Drawing.Point(723, 130);
-            this.btnTestName.Name = "btnTestName";
-            this.btnTestName.Size = new System.Drawing.Size(43, 43);
-            this.btnTestName.TabIndex = 1;
-            this.btnTestName.UseVisualStyleBackColor = true;
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -519,6 +519,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bolis";
@@ -527,9 +529,6 @@
             this.panelUeberweisungen.PerformLayout();
             this.panelTransaktion.ResumeLayout(false);
             this.panelTransaktion.PerformLayout();
-            this.panelKontostand.ResumeLayout(false);
-            this.panelKontostand.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -538,7 +537,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panelKontostand.ResumeLayout(false);
+            this.panelKontostand.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
