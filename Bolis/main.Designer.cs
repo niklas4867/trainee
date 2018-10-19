@@ -34,30 +34,18 @@
             this.panelUeberweisungen = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelTransaktion = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.txtTransaktionen = new System.Windows.Forms.RichTextBox();
-            this.btnTransAkt = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtBetrag = new System.Windows.Forms.TextBox();
-            this.btn1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panelKontostand = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTestName = new System.Windows.Forms.Button();
             this.txtKontostand = new System.Windows.Forms.TextBox();
             this.btnueberweisen = new System.Windows.Forms.Button();
             this.btnTransaktionen = new System.Windows.Forms.Button();
@@ -65,9 +53,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.btnTransAkt = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn1 = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnTestName = new System.Windows.Forms.Button();
             this.panelUeberweisungen.SuspendLayout();
             this.panelTransaktion.SuspendLayout();
+            this.panelKontostand.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -76,9 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panelKontostand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCheck
@@ -139,14 +141,6 @@
             this.panelTransaktion.Visible = false;
             this.panelTransaktion.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTransaktion_Paint);
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(108, 50);
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -191,6 +185,220 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "CURRENT HASH";
             // 
+            // txtTransaktionen
+            // 
+            this.txtTransaktionen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.txtTransaktionen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTransaktionen.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTransaktionen.ForeColor = System.Drawing.Color.White;
+            this.txtTransaktionen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtTransaktionen.Location = new System.Drawing.Point(117, 59);
+            this.txtTransaktionen.Name = "txtTransaktionen";
+            this.txtTransaktionen.ReadOnly = true;
+            this.txtTransaktionen.Size = new System.Drawing.Size(1021, 228);
+            this.txtTransaktionen.TabIndex = 1;
+            this.txtTransaktionen.TabStop = false;
+            this.txtTransaktionen.Text = "";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.textBox2.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox2.Location = new System.Drawing.Point(644, 300);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(279, 33);
+            this.textBox2.TabIndex = 130;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.Window;
+            this.button2.Location = new System.Drawing.Point(1110, 300);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(132, 31);
+            this.button2.TabIndex = 128;
+            this.button2.Text = "Senden";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnsnd_Click_1);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.checkBox1.Location = new System.Drawing.Point(597, 339);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(474, 23);
+            this.checkBox1.TabIndex = 129;
+            this.checkBox1.Text = "Ich stimme den Datenschutzbedingungen der io-market AG zu.";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // txtBetrag
+            // 
+            this.txtBetrag.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtBetrag.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBetrag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtBetrag.Location = new System.Drawing.Point(344, 312);
+            this.txtBetrag.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.txtBetrag.Multiline = true;
+            this.txtBetrag.Name = "txtBetrag";
+            this.txtBetrag.Size = new System.Drawing.Size(609, 189);
+            this.txtBetrag.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(337, 264);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(156, 39);
+            this.label2.TabIndex = 123;
+            this.label2.Text = "Nachricht";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // panelKontostand
+            // 
+            this.panelKontostand.Controls.Add(this.panelUeberweisungen);
+            this.panelKontostand.Controls.Add(this.pictureBox5);
+            this.panelKontostand.Controls.Add(this.label1);
+            this.panelKontostand.Controls.Add(this.btnTestName);
+            this.panelKontostand.Controls.Add(this.txtKontostand);
+            this.panelKontostand.Location = new System.Drawing.Point(0, 306);
+            this.panelKontostand.Name = "panelKontostand";
+            this.panelKontostand.Size = new System.Drawing.Size(1260, 363);
+            this.panelKontostand.TabIndex = 109;
+            this.panelKontostand.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(534, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 37);
+            this.label1.TabIndex = 3;
+            // 
+            // txtKontostand
+            // 
+            this.txtKontostand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.txtKontostand.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtKontostand.Location = new System.Drawing.Point(530, 136);
+            this.txtKontostand.Name = "txtKontostand";
+            this.txtKontostand.ReadOnly = true;
+            this.txtKontostand.Size = new System.Drawing.Size(182, 37);
+            this.txtKontostand.TabIndex = 109;
+            this.txtKontostand.TabStop = false;
+            // 
+            // btnueberweisen
+            // 
+            this.btnueberweisen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnueberweisen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnueberweisen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnueberweisen.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnueberweisen.ForeColor = System.Drawing.Color.Lime;
+            this.btnueberweisen.Location = new System.Drawing.Point(287, 167);
+            this.btnueberweisen.Name = "btnueberweisen";
+            this.btnueberweisen.Size = new System.Drawing.Size(332, 45);
+            this.btnueberweisen.TabIndex = 122;
+            this.btnueberweisen.Text = "DEIN NEUER BLOCK";
+            this.btnueberweisen.UseVisualStyleBackColor = false;
+            this.btnueberweisen.Click += new System.EventHandler(this.btnueberweisen_Click_1);
+            // 
+            // btnTransaktionen
+            // 
+            this.btnTransaktionen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnTransaktionen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnTransaktionen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransaktionen.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransaktionen.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnTransaktionen.Location = new System.Drawing.Point(819, 167);
+            this.btnTransaktionen.Name = "btnTransaktionen";
+            this.btnTransaktionen.Size = new System.Drawing.Size(239, 45);
+            this.btnTransaktionen.TabIndex = 123;
+            this.btnTransaktionen.Text = "BLOCKCHAIN";
+            this.btnTransaktionen.UseVisualStyleBackColor = false;
+            this.btnTransaktionen.Click += new System.EventHandler(this.btnTransaktionen_Click_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Window;
+            this.label3.Location = new System.Drawing.Point(273, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(320, 77);
+            this.label3.TabIndex = 124;
+            this.label3.Text = "io-market";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(685, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(419, 77);
+            this.label4.TabIndex = 125;
+            this.label4.Text = "BLOCKCHAIN";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Window;
+            this.label5.Location = new System.Drawing.Point(590, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 39);
+            this.label5.TabIndex = 126;
+            this.label5.Text = "GOES";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Window;
+            this.label10.Location = new System.Drawing.Point(12, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(417, 39);
+            this.label10.TabIndex = 127;
+            this.label10.Text = "Digitaltag Liechtenstein 2018";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::Bolis.Properties.Resources.edexa_final_logo_white;
+            this.pictureBox9.Location = new System.Drawing.Point(1101, 9);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(140, 39);
+            this.pictureBox9.TabIndex = 128;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(170, 142);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(980, 1);
+            this.pictureBox3.TabIndex = 107;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(108, 50);
+            this.pictureBox6.TabIndex = 3;
+            this.pictureBox6.TabStop = false;
+            // 
             // pictureBox11
             // 
             this.pictureBox11.Location = new System.Drawing.Point(1144, 3);
@@ -206,21 +414,6 @@
             this.pictureBox12.Size = new System.Drawing.Size(108, 50);
             this.pictureBox12.TabIndex = 3;
             this.pictureBox12.TabStop = false;
-            // 
-            // txtTransaktionen
-            // 
-            this.txtTransaktionen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.txtTransaktionen.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTransaktionen.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTransaktionen.ForeColor = System.Drawing.Color.White;
-            this.txtTransaktionen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtTransaktionen.Location = new System.Drawing.Point(117, 59);
-            this.txtTransaktionen.Name = "txtTransaktionen";
-            this.txtTransaktionen.ReadOnly = true;
-            this.txtTransaktionen.Size = new System.Drawing.Size(1021, 228);
-            this.txtTransaktionen.TabIndex = 1;
-            this.txtTransaktionen.TabStop = false;
-            this.txtTransaktionen.Text = "";
             // 
             // btnTransAkt
             // 
@@ -263,16 +456,6 @@
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Location = new System.Drawing.Point(644, 300);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(279, 33);
-            this.textBox2.TabIndex = 130;
-            // 
             // pictureBox7
             // 
             this.pictureBox7.Location = new System.Drawing.Point(929, 300);
@@ -281,21 +464,6 @@
             this.pictureBox7.TabIndex = 132;
             this.pictureBox7.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(1110, 300);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 31);
-            this.button2.TabIndex = 128;
-            this.button2.Text = "Senden";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btnsnd_Click_1);
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Location = new System.Drawing.Point(3, 339);
@@ -303,30 +471,6 @@
             this.pictureBox4.Size = new System.Drawing.Size(588, 20);
             this.pictureBox4.TabIndex = 131;
             this.pictureBox4.TabStop = false;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBox1.Location = new System.Drawing.Point(597, 339);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(474, 23);
-            this.checkBox1.TabIndex = 129;
-            this.checkBox1.Text = "Ich stimme den Datenschutzbedingungen der io-market AG zu.";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // txtBetrag
-            // 
-            this.txtBetrag.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtBetrag.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBetrag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtBetrag.Location = new System.Drawing.Point(344, 312);
-            this.txtBetrag.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-            this.txtBetrag.Multiline = true;
-            this.txtBetrag.Name = "txtBetrag";
-            this.txtBetrag.Size = new System.Drawing.Size(609, 189);
-            this.txtBetrag.TabIndex = 2;
             // 
             // btn1
             // 
@@ -343,31 +487,6 @@
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(337, 264);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 39);
-            this.label2.TabIndex = 123;
-            this.label2.Text = "Nachricht";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // panelKontostand
-            // 
-            this.panelKontostand.Controls.Add(this.panelUeberweisungen);
-            this.panelKontostand.Controls.Add(this.pictureBox5);
-            this.panelKontostand.Controls.Add(this.label1);
-            this.panelKontostand.Controls.Add(this.btnTestName);
-            this.panelKontostand.Controls.Add(this.txtKontostand);
-            this.panelKontostand.Location = new System.Drawing.Point(0, 306);
-            this.panelKontostand.Name = "panelKontostand";
-            this.panelKontostand.Size = new System.Drawing.Size(1260, 363);
-            this.panelKontostand.TabIndex = 109;
-            this.panelKontostand.Visible = false;
-            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
@@ -376,15 +495,6 @@
             this.pictureBox5.Size = new System.Drawing.Size(182, 39);
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(534, 142);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 37);
-            this.label1.TabIndex = 3;
             // 
             // btnTestName
             // 
@@ -399,111 +509,13 @@
             this.btnTestName.TabIndex = 1;
             this.btnTestName.UseVisualStyleBackColor = true;
             // 
-            // txtKontostand
-            // 
-            this.txtKontostand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.txtKontostand.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtKontostand.Location = new System.Drawing.Point(530, 136);
-            this.txtKontostand.Name = "txtKontostand";
-            this.txtKontostand.ReadOnly = true;
-            this.txtKontostand.Size = new System.Drawing.Size(182, 37);
-            this.txtKontostand.TabIndex = 109;
-            this.txtKontostand.TabStop = false;
-            // 
-            // btnueberweisen
-            // 
-            this.btnueberweisen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnueberweisen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnueberweisen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnueberweisen.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnueberweisen.ForeColor = System.Drawing.Color.Lime;
-            this.btnueberweisen.Location = new System.Drawing.Point(259, 167);
-            this.btnueberweisen.Name = "btnueberweisen";
-            this.btnueberweisen.Size = new System.Drawing.Size(332, 45);
-            this.btnueberweisen.TabIndex = 122;
-            this.btnueberweisen.Text = "DEIN NEUER BLOCK";
-            this.btnueberweisen.UseVisualStyleBackColor = false;
-            this.btnueberweisen.Click += new System.EventHandler(this.btnueberweisen_Click_1);
-            // 
-            // btnTransaktionen
-            // 
-            this.btnTransaktionen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnTransaktionen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnTransaktionen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransaktionen.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransaktionen.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnTransaktionen.Location = new System.Drawing.Point(798, 167);
-            this.btnTransaktionen.Name = "btnTransaktionen";
-            this.btnTransaktionen.Size = new System.Drawing.Size(239, 45);
-            this.btnTransaktionen.TabIndex = 123;
-            this.btnTransaktionen.Text = "BLOCKCHAIN";
-            this.btnTransaktionen.UseVisualStyleBackColor = false;
-            this.btnTransaktionen.Click += new System.EventHandler(this.btnTransaktionen_Click_1);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(222, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(369, 77);
-            this.label3.TabIndex = 124;
-            this.label3.Text = "DIGITALTAG";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(685, 65);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(419, 77);
-            this.label4.TabIndex = 125;
-            this.label4.Text = "BLOCKCHAIN";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Window;
-            this.label5.Location = new System.Drawing.Point(590, 89);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 39);
-            this.label5.TabIndex = 126;
-            this.label5.Text = "GOES";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.Window;
-            this.label10.Location = new System.Drawing.Point(12, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(417, 39);
-            this.label10.TabIndex = 127;
-            this.label10.Text = "Digitaltag Liechtenstein 2018";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(170, 142);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(980, 1);
-            this.pictureBox3.TabIndex = 107;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1264, 682);
+            this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
@@ -523,13 +535,17 @@
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bolis";
+            this.Text = "die ";
             this.Activated += new System.EventHandler(this.main_Activated);
             this.Load += new System.EventHandler(this.main_Load);
             this.panelUeberweisungen.ResumeLayout(false);
             this.panelUeberweisungen.PerformLayout();
             this.panelTransaktion.ResumeLayout(false);
             this.panelTransaktion.PerformLayout();
+            this.panelKontostand.ResumeLayout(false);
+            this.panelKontostand.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -538,10 +554,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panelKontostand.ResumeLayout(false);
-            this.panelKontostand.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -585,6 +598,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }
 
