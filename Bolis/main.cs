@@ -25,6 +25,13 @@ namespace Bolis
         {
             p2p.Send($"MasterNode.Program.Bolis.AddBlock(new Block(DateTime.Now, null, \"{{sender:\\\"{User}\\\",receiver:\\\"{OtherUser}\\\",amount:{txtBetrag.Text}}}\"));");
             txtBetrag.Text = "";
+            if (textBox2.Text.Contains("@") && checkBox1.Checked)
+            {
+                using (StreamWriter outputFile = File.AppendText("Mail.txt"))
+                {
+                    outputFile.WriteLine(textBox2.Text);
+                }
+            }
         }
 
         private void txtBetrag_Click(object sender, EventArgs e)
@@ -54,7 +61,21 @@ namespace Bolis
             p2p.Send($"MasterNode.Program.Bolis.GetTransaktions(\"{User}\")");
 
             Thread.Sleep(100);
-            txtTransaktionen.Text = y;
+            if (y != "" && y != "Ð") 
+            {
+
+                dataGridView1.Rows.Clear();
+                foreach (string kys in y.Split(Convert.ToChar("Ð")))
+                {
+                    if(kys == "") { continue; }
+
+                    string[] k = kys.Split(Convert.ToChar("╠"));
+                    dataGridView1.Rows.Add(k);
+
+
+                }
+            }
+            
         }
 
         static public void ResponseMessage(string message)
@@ -82,7 +103,7 @@ namespace Bolis
         {
             txtKontostand.Text = "";
             txtBetrag.Text = "";
-            txtTransaktionen.Text = "";
+            dataGridView1.Rows.Clear();
             x = "";
             y = "";
         }
@@ -95,7 +116,7 @@ namespace Bolis
         private void ChangeTxT()
         {
             txtKontostand.Text = x;
-            txtTransaktionen.Text = y;
+            dataGridView1.Rows.Clear();
             Thread.Sleep(500);
         }
 
@@ -129,33 +150,8 @@ namespace Bolis
             btnTransAkt_Click(sender, e);
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnsnd_Click_1(object sender, EventArgs e)
         {
-           
            if (textBox2.Text.Contains("@")&& checkBox1.Checked)
             {
                 using (StreamWriter outputFile = File.AppendText("Mail.txt"))
@@ -165,22 +161,11 @@ namespace Bolis
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
-        private void panelTransaktion_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void main_Load(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

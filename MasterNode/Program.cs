@@ -17,7 +17,6 @@ namespace MasterNode
         static public Blockchain Bolis = new Blockchain();
         static List<int> numbers = new List<int>();
         static public int dif = 3;
-        static int sek = 0;
         static public string returnCode = "";
 
         static CSharpCodeProvider provider = new CSharpCodeProvider(); //Code zu Maschinencode

@@ -53,7 +53,7 @@ namespace MasterNode
             while (true)
             {
                 byte[] data = receivingClient.Receive(ref endPoint);
-                string message = Encoding.ASCII.GetString(data);
+                string message = Encoding.UTF8.GetString(data);
                 messageDelegate(message);
             }
         }
@@ -81,7 +81,7 @@ namespace MasterNode
             lastNumber2 = lastNumber;
             lastNumber = rnd.Next(1000, 9999);
             toSend = toSend + Convert.ToString(lastNumber);
-            byte[] data = Encoding.ASCII.GetBytes(toSend);
+            byte[] data = Encoding.UTF8.GetBytes(toSend);
             sendingClient.Send(data, data.Length);
         }
 

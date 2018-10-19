@@ -87,13 +87,13 @@ namespace MasterNode
         }
         public string GetTransaktions(string Name)
         {
-            string x = "";
+            string x = "Ð";
             for (int i = 1; i < Chain.Count; i++)
             {
                 string[] a = Chain[i].Data.Split(new[] { "{sender:", ",receiver:", ",amount:", "}" }, StringSplitOptions.RemoveEmptyEntries);
                 if (a[0] == $"\"{Name}\"" || a[1] == $"\"{Name}\"" || a[0] == Name || a[1] == Name)
                 {
-                    x = x + $"{Convert.ToString(Chain[i].TimeStamp).Substring(0, Convert.ToString(Chain[i].TimeStamp).Length - 9)}   {Convert.ToString(Chain[i].TimeStamp).Substring(Convert.ToString(Chain[i].TimeStamp).Length - 9)}     {a[2]}      { a[0].Substring(1, a[0].Length - 2)}     { a[1].Substring(1, a[1].Length - 2)}     {Chain[i].GetHashCode()}     {Chain[i].PreviousHash}\n";
+                    x = x + $"{Convert.ToString(Chain[i].TimeStamp).Substring(0, Convert.ToString(Chain[i].TimeStamp).Length - 9)}  {Convert.ToString(Chain[i].TimeStamp).Substring(Convert.ToString(Chain[i].TimeStamp).Length - 9)}╠{a[2]}╠{Chain[i].CalculateHash().GetHashCode()}╠{Chain[i].PreviousHash.GetHashCode()}Ð";
                 }
             }
             return $"SetTra{Name}{x}";
